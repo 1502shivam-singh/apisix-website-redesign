@@ -33,7 +33,7 @@ function Benefits(props) {
                     trigger: triggerDiv.current,
                     start: "top top",
                     pin: triggerDiv.current,
-                    scrub: 0.1,
+                    scrub: 1,
                     end: "+=500%"
                 }
             });
