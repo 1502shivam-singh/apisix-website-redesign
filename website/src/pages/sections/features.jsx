@@ -46,23 +46,20 @@ function Features() {
         }
     },[])
 
-    let windowWidth;
-
     useEffect(() => {
-        windowWidth = window.innerWidth;
         const value = window.innerHeight*2;
         const popupValue = window.innerHeight-30;
         console.log(value);
-
-        ScrollTrigger.refresh();
-
+        
+        let tl;
         console.log("ScreenWidth: "+ window.innerWidth);
         if(window.innerWidth > 1100) {
-            let tl = gsap.timeline({
+            tl = gsap.timeline({
                 defaults: {
                     ease: "linear" 
                 },
                 scrollTrigger: {
+                    id: "feat",
                     trigger: triggerDiv.current,
                     start: "top top",
                     pin: pinDiv.current,
@@ -88,34 +85,43 @@ function Features() {
 
             gsap.to(img1col.current,{
                 scrollTrigger: {
+                    id: "feat1",
                     trigger: img1col.current,
                     start: "top "+(popupValue)+"px",
+                    ease: "linear"
                 },
                 opacity: 1,
                 y: -40,
             });
             gsap.to(img2col.current,{
                 scrollTrigger: {
+                    id: "feat2",
                     trigger: img2col.current,
                     start: "top "+(popupValue)+"px",
+                    ease: "linear"
                 },
                 opacity: 1,
                 y: -50
             });
             gsap.to(img3col.current,{
                 scrollTrigger: {
+                    id: "feat3",
                     trigger: img3col.current,
                     start: "top "+(popupValue)+"px",
+                    ease: "linear"
                 },
                 opacity: 1,
                 y: -50
             });
         }
 
-        return () => {
-            console.log("Scrollers set up");
+        return ()=>{
+            ScrollTrigger.getAll().forEach(t => t.kill());
+            if(window.innerWidth > 1100) {
+                tl.pause(0).kill(true);
+            }
         }
-    });
+    },[]);
 
     let strokeAnim = {
         strokeDasharray: 1000,

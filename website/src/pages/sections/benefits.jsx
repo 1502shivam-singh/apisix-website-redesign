@@ -22,10 +22,10 @@ function Benefits(props) {
     const screenWidth = props.screenWidth;
 
     useEffect(() => {
-
+        let tl;
         if(window.innerWidth <= 768)
         {
-            let tl = gsap.timeline({
+            tl = gsap.timeline({
                 defaults: {
                     ease: "linear" 
                 },
@@ -64,7 +64,10 @@ function Benefits(props) {
             });
         }
         return () => {
-            console.log("tweens set up");
+            if(window.innerWidth <= 768) {
+                tl.pause(0).kill(true);
+                ScrollTrigger.getAll().forEach(t => t.kill());
+            }
         }
     },[])
     
