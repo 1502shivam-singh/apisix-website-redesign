@@ -1329,3 +1329,10 @@ captions - 0.95rem (15px)
     transform: none !important;
   }
 }
+
+@media only screen and (min-device-height: 500px) and (max-device-height: 690px) {
+  .benefit-infograph {
+    width: 70%;
+    padding: 0 0 60px 0;
+  }
+}
