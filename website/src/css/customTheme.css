@@ -1325,7 +1325,7 @@ captions - 0.95rem (15px)
     font-size: 2.4rem;
   }
 
-  .navbarHidden_node_modules-\@docusaurus-theme-classic-lib-next-theme-Navbar- {
+  .navbar {
     transform: none !important;
   }
 }
