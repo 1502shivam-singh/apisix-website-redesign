@@ -28,6 +28,9 @@ function Features() {
 
     gsap.registerPlugin(ScrollTrigger);
 
+    const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' && window.innerWidth);
+    const [screenHeight, setScreenHeight] = useState(typeof window !== 'undefined' && window.innerWidth);
+
     useEffect(()=>{
         setScreenHeight(window.innerHeight);
         setScreenWidth(window.innerWidth);
@@ -177,7 +180,7 @@ function Features() {
                                   Downloads
                                 </Link>
                                 <Link
-                                  to="https://github.com/apache/apisix" onMouseEnter={mouseEnter} onMouseLeave={mouseOut}
+                                  to={useBaseUrl("docs")} onMouseEnter={mouseEnter} onMouseLeave={mouseOut}
                                   className="btn-docs">
                                   Go to docs...
                                     <svg width="15" strokeWidth="3" height="25" viewBox="0 0 43 32" fill="none" xmlns="http://www.w3.org/2000/svg">

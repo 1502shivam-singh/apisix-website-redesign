@@ -5,6 +5,7 @@ import "../../../css/customTheme.css";
  
 function OssCanvas() {
     const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' && window.innerWidth);
+    const [screenHeight, setScreenHeight] = useState(typeof window !== 'undefined' && window.innerWidth);
 
     const canvasRef = useRef(null);
 
