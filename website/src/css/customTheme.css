@@ -283,6 +283,11 @@ a:hover {
   color: var(--color-primary);
 }
 
+.arrow-btn {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1002;
+}
+
 /*Hero section*/
 .hero-sec-wrap{
   display: flex;
