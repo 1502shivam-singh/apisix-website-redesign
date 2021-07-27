@@ -1,49 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "@docusaurus/Link";
 import useBaseUrl from "@docusaurus/useBaseUrl";
-import gsap from "gsap"
 import "../../css/customTheme.css";
 import HeroCanvas from "./components/heroCanvas"
-
+import ArrowAnim from "./components/arrowAnim";
 
 function HeroSection(props) {
-    const heroPathRef1 = useRef(null);
-    const heroPathRef2 = useRef(null);
-  
-    let strokeAnim = {
-        strokeDasharray: 1000,
-        strokeDashoffset: 1002
-    }
-
-    function mouseOver() {
-        gsap.to([heroPathRef2.current],{
-            strokeDashoffset: 970,
-            duration: 0.4
-        });
-        gsap.to([heroPathRef1.current],{
-            stroke: "#9b9b9b",
-            duration: 0.4
-        });
-        gsap.to([heroPathRef2.current],{
-            stroke: "#9b9b9b",
-            duration: 0.4
-        });
-    }
-
-    function mouseOut() {
-        gsap.to([heroPathRef2.current],{
-            strokeDashoffset: 1002,
-            duration: 0.4
-        });
-        gsap.to([heroPathRef1.current],{
-            stroke: "black",
-            duration: 0.4
-        });
-        gsap.to([heroPathRef2.current],{
-            stroke: "black",
-            duration: 0.4
-        });
-    }
 
     return (
         <>
@@ -58,15 +20,7 @@ function HeroSection(props) {
                           className="btn btn-download">
                           Downloads
                         </Link>
-                        <Link
-                          to={useBaseUrl("docs")} onMouseOver={mouseOver} onMouseLeave={mouseOut}
-                          className="btn-docs">
-                          Go to docs...
-                            <svg width="15" strokeWidth="3" height="25" viewBox="0 0 43 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path ref={heroPathRef1} d="M27.5 1L42.5 16L27.5 31" stroke="black" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path ref={heroPathRef2} style={strokeAnim} d="M42.5 16H0.5" stroke="black" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                        </Link>
+                        <ArrowAnim />
                     </div>
                 </div>
                 <HeroCanvas></HeroCanvas>

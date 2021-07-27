@@ -96,7 +96,7 @@ function Benefits(props) {
                         <h3 className="feat-head-desc">Security</h3>
                         <h1 className="feat-head add-left-margin">Shield against the malicious</h1>
                         <p className="feat-desc add-left-margin"> 
-                        Apache APISIX provides multiple security plugins for identity authentication and interface verification, putting stability and security first. For more information, check <a href="#">here</a>.
+                        Apache APISIX provides multiple security plugins for identity authentication and interface verification, putting stability and security first. For more information, check <a style={{color: "#e8433e"}} href="#">here</a>.
                         </p>
                     </div>
                 </div>

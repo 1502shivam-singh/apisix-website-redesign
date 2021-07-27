@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Dashboard from "../../assets/images/apisix-dashboard.png";
 import Snippet from "../../assets/images/code-sample.png";
 import Plugin from "../../assets/images/pluginised.png";
+import ArrowAnim from "./components/arrowAnim";
 
 function Features() {
     const dashboardDiv = useRef(null);
@@ -25,11 +26,50 @@ function Features() {
 
     const pathRef1 = useRef(null);
     const pathRef2 = useRef(null);
+    const testRef = useRef(null);
 
     gsap.registerPlugin(ScrollTrigger);
 
     const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' && window.innerWidth);
     const [screenHeight, setScreenHeight] = useState(typeof window !== 'undefined' && window.innerWidth);
+
+    let strokeAnimFeat = {
+        strokeDasharray: 1000,
+        strokeDashoffset: 1002
+    }
+    
+    function mouseOver() {
+        console.log("Enter...........");
+        console.log(pathRef2.current);
+
+        gsap.to([pathRef2.current],{
+            strokeDashoffset: 970,
+            duration: 0.4
+        });
+        gsap.to([pathRef1.current],{
+            stroke: "#9b9b9b",
+            duration: 0.4
+        });
+        gsap.to([pathRef2.current],{
+            stroke: "#9b9b9b",
+            duration: 0.4
+        });
+    }
+
+    function mouseOut() {
+        gsap.to([pathRef2.current],{
+            strokeDashoffset: 1002,
+            duration: 0.4
+        });
+        gsap.to([pathRef1.current],{
+            stroke: "black",
+            duration: 0.4
+        });
+        gsap.to([pathRef2.current],{
+            stroke: "black",
+            duration: 0.4
+        });
+    }
 
     useEffect(()=>{
         setScreenHeight(window.innerHeight);
@@ -44,7 +84,7 @@ function Features() {
         return () => {
             window.removeEventListener('resize', resizeEvent);
         }
-    },[])
+    }, [])
 
     useEffect(() => {
         const value = window.innerHeight*2;
@@ -121,43 +161,7 @@ function Features() {
                 tl.pause(0).kill(true);
             }
         }
-    },[]);
-
-    let strokeAnim = {
-        strokeDasharray: 1000,
-        strokeDashoffset: 1002
-    }
-    
-    function mouseEnter() {
-        gsap.to([pathRef2.current],{
-            strokeDashoffset: 970,
-            duration: 0.4
-        });
-        gsap.to([pathRef1.current],{
-            stroke: "#9b9b9b",
-            duration: 0.4
-        });
-        gsap.to([pathRef2.current],{
-            stroke: "#9b9b9b",
-            duration: 0.4
-        });
-    }
-
-    function mouseOut() {
-        gsap.to([pathRef2.current],{
-            strokeDashoffset: 1002,
-            duration: 0.4
-        });
-        gsap.to([pathRef1.current],{
-            stroke: "black",
-            duration: 0.4
-        });
-        gsap.to([pathRef2.current],{
-            stroke: "black",
-            duration: 0.4
-        });
-    }
-
+    }, []);
 
     return (
         <>
@@ -185,15 +189,7 @@ function Features() {
                                   className="btn btn-download">
                                   Downloads
                                 </Link>
-                                <Link
-                                  to={useBaseUrl("docs")} onMouseEnter={mouseEnter} onMouseLeave={mouseOut}
-                                  className="btn-docs">
-                                  Go to docs...
-                                    <svg width="15" strokeWidth="3" height="25" viewBox="0 0 43 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path ref={pathRef1} d="M27.5 1L42.5 16L27.5 31" stroke="black" strokeLinecap="round" strokeLinejoin="round"/>
-                                        <path ref={pathRef2} style={strokeAnim} d="M42.5 16H0.5" stroke="black" strokeLinecap="round" strokeLinejoin="round"/>
-                                    </svg>
-                                </Link>
+                                <ArrowAnim />
                             </div>
                         </div>
                     </div>
@@ -240,15 +236,7 @@ function Features() {
                               className="btn btn-download">
                               Downloads
                             </Link>
-                            <Link
-                              to="https://github.com/apache/apisix" onMouseEnter={mouseEnter} onMouseLeave={mouseOut}
-                              className="btn-docs">
-                              Go to docs...
-                                <svg width="15" strokeWidth="3" height="25" viewBox="0 0 43 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path ref={pathRef1}d="M27.5 1L42.5 16L27.5 31" stroke="black" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <path ref={pathRef2}  style={strokeAnim} d="M42.5 16H0.5" stroke="black" strokeLinecap="round" strokeLinejoin="round"/>
-                                </svg>
-                            </Link>
+                            <ArrowAnim />
                         </div>
                     </div>
                 </div>
