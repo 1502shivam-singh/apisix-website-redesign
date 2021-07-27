@@ -36,7 +36,7 @@ function OssCanvas() {
 
             const ctx = canvasRef.current;
             renderer = new THREE.WebGLRenderer({canvas: ctx});
-            
+
             camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 100);
             
             controls = new OrbitControls( camera, renderer.domElement );
@@ -87,9 +87,8 @@ function OssCanvas() {
 
         return () => {
             renderer.dispose();
-            scene = null;
         }
-    },[]);
+    }, []);
 
     return (
         <canvas ref={canvasRef} width={canvasWidth} height={canvasHeight} className="ossCanvas"></canvas>
