@@ -12,8 +12,8 @@ function OpensourcePromo(props) {
                     <div className="docs-promo-text">
                         <h3 className="docs-promo-head">Learn from developers</h3>
                         <div className="docs-promo-subtitle">
-                            <p>Want to learn APISIX usage, but don’t know where to start. Check out our <a href="$">docs.</a></p> 
-                            <p>Like visual information, check out our <a href="$">Youtube channel</a> for detailed tutorials. Subscribe for more.</p> 
+                            <p>Want to learn APISIX usage, but don’t know where to start. Check out our <a style={{color: "#e8433e"}} href="$">docs.</a></p> 
+                            <p>Like visual information, check out our <a style={{color: "#e8433e"}} href="$">Youtube channel</a> for detailed tutorials. Subscribe for more.</p> 
                         </div>
                     </div>
                     <div className="docs-promo-video">
