@@ -24,52 +24,10 @@ function Features() {
     const img3col = useRef(null);
     const featPin = useRef(null);
 
-    const pathRef1 = useRef(null);
-    const pathRef2 = useRef(null);
-    const testRef = useRef(null);
-
     gsap.registerPlugin(ScrollTrigger);
 
     const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' && window.innerWidth);
     const [screenHeight, setScreenHeight] = useState(typeof window !== 'undefined' && window.innerWidth);
-
-    let strokeAnimFeat = {
-        strokeDasharray: 1000,
-        strokeDashoffset: 1002
-    }
-    
-    function mouseOver() {
-        console.log("Enter...........");
-        console.log(pathRef2.current);
-
-        gsap.to([pathRef2.current],{
-            strokeDashoffset: 970,
-            duration: 0.4
-        });
-        gsap.to([pathRef1.current],{
-            stroke: "#9b9b9b",
-            duration: 0.4
-        });
-        gsap.to([pathRef2.current],{
-            stroke: "#9b9b9b",
-            duration: 0.4
-        });
-    }
-
-    function mouseOut() {
-        gsap.to([pathRef2.current],{
-            strokeDashoffset: 1002,
-            duration: 0.4
-        });
-        gsap.to([pathRef1.current],{
-            stroke: "black",
-            duration: 0.4
-        });
-        gsap.to([pathRef2.current],{
-            stroke: "black",
-            duration: 0.4
-        });
-    }
 
     useEffect(()=>{
         setScreenHeight(window.innerHeight);
@@ -89,10 +47,9 @@ function Features() {
     useEffect(() => {
         const value = window.innerHeight*2;
         const popupValue = window.innerHeight-30;
-        console.log(value);
         
         let tl;
-        console.log("ScreenWidth: "+ window.innerWidth);
+
         if(window.innerWidth > 1100) {
             tl = gsap.timeline({
                 defaults: {
@@ -121,7 +78,7 @@ function Features() {
                 opacity: 1, 
             });
         } else {
-            console.log("Mobile")
+            // Mobile
 
             gsap.to(img1col.current,{
                 scrollTrigger: {

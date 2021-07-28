@@ -21,19 +21,13 @@ function HeroCanvas() {
       let camera, mesh, scene, renderer, material, obliqueMaterial, obliqueMesh;//, uniforms;
 
       window.addEventListener('resize', onWindowResize, false);
-       
-      if(window.innerWidth > 25000){
-        console.log(swipe);
-      }
   
       if (screenWidth > 800) {
         canvasHeight = screenHeight;
         canvasWidth = screenWidth / 2;
-        console.log(canvasWidth, canvasHeight);
       } else {
         canvasHeight = screenHeight / 2;
         canvasWidth = screenWidth;
-        console.log(canvasWidth, canvasHeight);
       }
       
       canvasRef.current.addEventListener("mousemove", function (event) {
@@ -83,11 +77,8 @@ function HeroCanvas() {
         renderer.autoClearColor = false;
   
         camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
-        console.log(camera.position.z);
 
         var geometry = new THREE.PlaneBufferGeometry(width / height, 1, 3, 3);
-        console.log(geometry.getAttribute("position"));
-        console.log(height);
         
         const radius = 3.5;  
         const detail = 8; 
@@ -97,9 +88,6 @@ function HeroCanvas() {
 
         scene = new THREE.Scene();
         renderer.setSize(canvasWidth, canvasHeight);
-        
-        console.log(renderer.domElement.width/renderer.domElement.height);
-        console.log(canvasWidth/canvasHeight);
   
         let uniforms = {
           u_time: {
@@ -153,8 +141,6 @@ function HeroCanvas() {
         renderer.setSize(canvasWidth, canvasHeight);
         material.uniforms.u_resolution.value.x = renderer.domElement.width;
         material.uniforms.u_resolution.value.y = renderer.domElement.height;
-        
-        console.log(material.uniforms.u_resolution.value.x, material.uniforms.u_resolution.value.y);
       }
   
       function animate() {

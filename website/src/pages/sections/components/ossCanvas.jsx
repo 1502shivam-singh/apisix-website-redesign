@@ -20,7 +20,6 @@ function OssCanvas() {
         if (screenWidth > 800) {
             canvasHeight = 500;
             canvasWidth = screenWidth/2;
-            console.log(canvasWidth, canvasHeight);
         } else {
             canvasHeight = 500
             canvasWidth = screenWidth;
