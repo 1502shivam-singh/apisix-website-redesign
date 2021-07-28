@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import * as THREE from "three";
 import gsap from "gsap"
 import "../../../css/customTheme.css";
@@ -29,7 +29,10 @@ function HeroCanvas() {
         canvasHeight = screenHeight / 2;
         canvasWidth = screenWidth;
       }
-      
+
+      canvasRef.current.width = canvasWidth;
+      canvasRef.current.height = canvasHeight;
+
       canvasRef.current.addEventListener("mousemove", function (event) {
       
         let ctx = {
@@ -69,9 +72,6 @@ function HeroCanvas() {
   
       function init(width, height) {
         const ctx = canvasRef.current;
-        
-        ctx.width = canvasWidth;
-        ctx.height = canvasHeight;
         
         renderer = new THREE.WebGLRenderer({canvas: ctx});
         renderer.autoClearColor = false;
