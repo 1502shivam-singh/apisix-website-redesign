@@ -85,30 +85,33 @@ function Features() {
                     id: "feat1",
                     trigger: img1col.current,
                     start: "top "+(popupValue)+"px",
-                    ease: "linear"
                 },
                 opacity: 1,
                 y: -40,
+                duration: 0.5,
+                ease: "Expo.easeInOut"
             });
             gsap.to(img2col.current,{
                 scrollTrigger: {
                     id: "feat2",
                     trigger: img2col.current,
                     start: "top "+(popupValue)+"px",
-                    ease: "linear"
                 },
                 opacity: 1,
-                y: -50
+                y: -50,
+                duration: 0.5,
+                ease: "Expo.easeInOut"
             });
             gsap.to(img3col.current,{
                 scrollTrigger: {
                     id: "feat3",
                     trigger: img3col.current,
                     start: "top "+(popupValue)+"px",
-                    ease: "linear"
                 },
                 opacity: 1,
-                y: -50
+                y: -50,
+                duration: 0.5,
+                ease: "Expo.easeInOut"
             });
         }
 
