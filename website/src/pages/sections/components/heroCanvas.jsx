@@ -6,7 +6,8 @@ import vertex from '!!raw-loader!../../../shaders/vertex.vert';
 import fragment from '!!raw-loader!../../../shaders/fragment.frag';
  
 function HeroCanvas() {
-    const canvasRef = useRef(null);
+    const canvasRef = useRef(0);
+    const overlayRef = useRef(0);
 
     let canvasHeight, canvasWidth, screenWidth, screenHeight;
 
@@ -15,8 +16,8 @@ function HeroCanvas() {
       screenWidth = window.innerWidth;
       screenHeight = window.innerHeight;
 
-      let mouse = {x: 0.0, y: 0.0};
-      let fragMouse = {x: 0.0, y: 0.0};
+      let mouse = {x: 0.5, y: 0.5};
+      let fragMouse = {x: 0.5, y: 0.5};
 
       let camera, mesh, scene, renderer, material, obliqueMaterial, obliqueMesh;//, uniforms;
 
@@ -85,6 +86,7 @@ function HeroCanvas() {
         var obliqueGeometry = new THREE.IcosahedronGeometry(radius, detail);
 
         geometry.scale(100.0, 100.0, 1.0);
+        // geometry.scale(10.0, 10.0, 1.0);
 
         scene = new THREE.Scene();
         renderer.setSize(canvasWidth, canvasHeight);
@@ -100,11 +102,11 @@ function HeroCanvas() {
           },
           u_mouse: {
               type: "v2",
-              value: new THREE.Vector2()
+              value: new THREE.Vector2(0.5, 0.5)
           },
           u_fragMouse: {
               type: "v2",
-              value: new THREE.Vector2()
+              value: new THREE.Vector2(0.5, 0.5)
           },
         };
   
@@ -123,7 +125,10 @@ function HeroCanvas() {
         obliqueMaterial = new THREE.MeshBasicMaterial({color: 0x1E2123, wireframe: true});
         
         mesh = new THREE.Mesh(geometry, material);
-        mesh.position.set(0, 0, -20.0);
+        mesh.position.set(0, 0, -20);
+        // mesh.position.set(0, -8, -20.0);
+        // mesh.position.set(0, -5, -9.5);
+        // mesh.rotation.x -= Math.PI/2;
         scene.add(mesh);
         
         obliqueMesh = new THREE.Mesh(obliqueGeometry, obliqueMaterial)
@@ -156,8 +161,24 @@ function HeroCanvas() {
       }
     }, []);
 
+    
+    useEffect(() => {
+      gsap.to(overlayRef.current,{
+        height: 0,
+        duration: 2.1,
+        ease: "Expo.easeInOut"
+      });
+
+      return () => {
+        
+      }
+    }, [])
+
     return (
-      <canvas ref={canvasRef} className="homeCanvas"></canvas>
+      <div style={{position: "relative"}}>
+        <canvas style={{display: ""}} ref={canvasRef} className="homeCanvas"></canvas>
+        <div ref={overlayRef} className="homeCanvas-overlay"></div>
+      </div>  
     );
 }
 

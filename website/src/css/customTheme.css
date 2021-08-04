@@ -52,33 +52,40 @@ html[data-theme='dark'] {
   --color-downloads-dropdown-items: #4c4e50;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'MaisonNeue-Thin';
   src: local('MaisonNeue-Thin'), url(../fonts/MaisonNeue-Thin.otf) format('opentype');
-}
+  font-display: swap;
+} */
 @font-face {
   font-family: 'MaisonNeue-Medium';
   src: local('MaisonNeue-Medium'), url(../fonts/MaisonNeue-Medium.otf) format('opentype');
+  font-display: swap;
 }
 @font-face {
   font-family: 'MaisonNeue-Bold';
   src: local('MaisonNeue-Bold'), url(../fonts/MaisonNeue-Bold.otf) format('opentype');
+  font-display: swap;
 }
 @font-face {
   font-family: 'MaisonNeue-Light';
   src: local('MaisonNeue-Light'), url(../fonts/MaisonNeue-Light.otf) format('opentype');
+  font-display: swap;
 }
 @font-face {
   font-family: 'MaisonNeue-Demi';
   src: local('MaisonNeue-Demi'), url(../fonts/MaisonNeue-Demi.otf) format('opentype');
+  font-display: swap;
 }
-@font-face {
+/* @font-face {
   font-family: 'MaisonNeue-Black';
   src: local('MaisonNeue-Black'), url(../fonts/MaisonNeue-Black.otf) format('opentype');
-}
+  font-display: swap;
+} */
 @font-face {
   font-family: 'MaisonNeue-ExtraBold';
   src: local('MaisonNeue-ExtraBold'), url(../fonts/MaisonNeue-ExtraBold.otf) format('opentype');
+  font-display: swap;
 }
 
 ::-webkit-scrollbar {
@@ -291,8 +298,19 @@ a:hover {
 /*Hero section*/
 .hero-sec-wrap{
   display: flex;
-  background: #EBE6DC;
+  background: #f4f4f4ad;
+  /* background: #EBE6DC; */
   height: 100vh;
+}
+
+.homeCanvas-overlay {
+  position: absolute;
+  width: 50vw;
+  height: 100vh;
+  background: #FFFFFF;
+  /* background: #EBE6DC; */
+  top: -1px;
+  right: 0px;
 }
 
 .hero-text {
@@ -937,6 +955,15 @@ captions - 0.95rem (15px)
     height: fit-content;
   }
 
+  .homeCanvas-overlay {
+    position: absolute;
+    width: 100vw;
+    height: 50vh;
+    background: #EBE6DC;
+    top: -1px;
+    right: 0px;
+  }
+  
   .hero-text {
     height: 50%;
     width: 100%;
