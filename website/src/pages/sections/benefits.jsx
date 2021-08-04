@@ -2,9 +2,9 @@ import React, { useState, useRef, useEffect } from "react";
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Performance from "../../assets/images/performance.svg";
-import Security from "../../assets/images/security.svg";
+import Security from "../../assets/images/security-tagged.svg";
 import Scale from "../../assets/images/scale.svg";
-import Dynamic from "../../assets/images/dynamic.svg";
+import Dynamic from "../../assets/images/infographs/dynamic_compress.svg";
 import Multiplatform from "../../assets/images/multiplatform.svg";
 import "../../css/customTheme.css";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import HLDesign from "../../assets/images/architecture.svg";
+import HLDesign from "../../assets/images/infographs/Architecture_compress.svg";
 import "../../css/customTheme.css";
 
 function Architecture(props) {
