@@ -101,8 +101,19 @@ html[data-theme='dark'] {
   background: #555;
 }
 
+html {
+  overflow: hidden !important;
+  width: 100%;
+}
+
 body{
   font-family: MaisonNeue-Medium, sans-serif;
+  height: 100%;
+  /* position: fixed; */
+  /* prevent overscroll bounce*/
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch;
 }
 
 .docusaurus-wrap{
@@ -781,6 +792,12 @@ a:hover {
   justify-content: center;
 }
 
+.rocket {
+  width: 6vw;
+  height: auto;
+  transform: rotate(45deg);
+}
+
 /* footer */
 .footer {
   margin-top: 2rem;
@@ -1063,6 +1080,7 @@ captions - 0.95rem (15px)
     /* height: fit-content; */
     position: absolute;
     height: 100vh;
+    width: 100vw;
   }
 
   .benefit-infograph{
@@ -1127,6 +1145,12 @@ captions - 0.95rem (15px)
 
   .navbar {
     transform: none !important;
+  }
+
+  .rocket {
+    width: 12vw;
+    height: auto;
+    transform: rotate(45deg);
   }
 }
 

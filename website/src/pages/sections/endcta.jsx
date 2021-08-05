@@ -11,7 +11,7 @@ function EndCTA() {
         <>
             <div className="endcta" style={{padding: "50px 0", background: "#FF90A3", margin: "0 0 -32px 0"}}>
                 <div className="endcta-text">
-                    <p style={{display: "flex", justifyContent: "center", alignItems: "center", whiteSpace: "pre"}}>Try <span style={{color: "#E8433E"}}>APISIX</span> today <img src={Rocket} style={{width: "100px", height: "auto", transform: "rotate(45deg)"}} alt="Rocket"/></p>
+                    <p style={{display: "flex", justifyContent: "center", alignItems: "center", whiteSpace: "pre"}}>Try <span style={{color: "#E8433E"}}>APISIX</span> today <img className="rocket" src={Rocket} alt="Rocket"/></p>
                 </div>
                 <div className="endcta-btns">
                     <div className="hero-ctas">
