@@ -101,19 +101,8 @@ html[data-theme='dark'] {
   background: #555;
 }
 
-html {
-  overflow: hidden !important;
-  width: 100%;
-}
-
 body{
   font-family: MaisonNeue-Medium, sans-serif;
-  height: 100%;
-  /* position: fixed; */
-  /* prevent overscroll bounce*/
-  overflow-y: scroll !important;
-  overflow-x: hidden !important;
-  -webkit-overflow-scrolling: touch;
 }
 
 .docusaurus-wrap{
