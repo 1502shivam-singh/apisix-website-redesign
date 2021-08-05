@@ -176,7 +176,7 @@ function HeroCanvas() {
 
     return (
       <div style={{position: "relative"}}>
-        <canvas style={{display: ""}} ref={canvasRef} className="homeCanvas"></canvas>
+        <canvas ref={canvasRef} className="homeCanvas"></canvas>
         <div ref={overlayRef} className="homeCanvas-overlay"></div>
       </div>  
     );
