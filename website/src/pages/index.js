@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useLayoutEffect } from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
+import Root from "@theme/Root";
 import HeroSection from "./sections/heroSection";
 import Architecture from "./sections/architecture";
 import Features from "./sections/features";
@@ -77,17 +78,19 @@ const Index = (props) => {
   const [screenWidth, screenHeight] = useWindowSize();
 
   return (
-    <Layout>
-      <HeroSection />
-      <Showcase />
-      <Architecture screenWidth={screenWidth} screenHeight={screenHeight}/>
-      <Features screenWidth={screenWidth} screenHeight={screenHeight}/>
-      <Benefits screenWidth={screenWidth} screenHeight={screenHeight}/>
-      <Comparison />
-      <OpensourcePromo />
-      <NewsSection />
-      <EndCTA />
-    </Layout>
+    <Root>
+      <Layout>
+        <HeroSection />
+        <Showcase />
+        <Architecture screenWidth={screenWidth} screenHeight={screenHeight}/>
+        <Features screenWidth={screenWidth} screenHeight={screenHeight}/>
+        <Benefits screenWidth={screenWidth} screenHeight={screenHeight}/>
+        <Comparison />
+        <OpensourcePromo />
+        <NewsSection />
+        <EndCTA />
+      </Layout>
+    </Root>
   );
 };
 
