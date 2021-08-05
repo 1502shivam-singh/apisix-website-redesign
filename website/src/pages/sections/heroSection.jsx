@@ -50,10 +50,10 @@ function HeroSection(props) {
         <>
             <div className="hero-sec-wrap" style={{width: "100%"}}>
                 <div className="hero-text">
-                    <h2 ref={titleRef} className="hero-title"><span>Complete</span> management 
+                    <h2 ref={titleRef} className="hero-title hide-title"><span>Complete</span> management 
                     suite for your <span style={{color: "#E8433E"}}>API Traffic</span></h2>
-                    <h3 ref={subtitleRef} className="hero-subtitle">APISIX provides rich traffic management features like Load Balancing, Dynamic Upstream, Canary Release, Circuit Breaking, Authentication, Observability, and more...</h3>
-                    <div ref={ctaRef} className="hero-ctas">
+                    <h3 ref={subtitleRef} className="hero-subtitle hide-subtitle">APISIX provides rich traffic management features like Load Balancing, Dynamic Upstream, Canary Release, Circuit Breaking, Authentication, Observability, and more...</h3>
+                    <div ref={ctaRef} className="hero-ctas hide-ctas">
                         <Link
                           to={useBaseUrl("downloads")}
                           className="btn btn-download">

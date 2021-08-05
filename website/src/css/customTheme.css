@@ -297,7 +297,7 @@ a:hover {
 
 /*Hero section*/
 
-.hero-title, .hero-subtitle, .hero-ctas {
+.hide-title, .hide-subtitle, .hide-ctas {
   opacity: 0;
 }
 
