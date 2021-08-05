@@ -48,7 +48,7 @@ function HeroSection(props) {
 
     return (
         <>
-            <div className="hero-sec-wrap" style={{width: "100%"}}>
+            <div className="hero-sec-wrap" style={{width: "100vw"}}>
                 <div className="hero-text">
                     <h2 ref={titleRef} className="hero-title"><span>Complete</span> management 
                     suite for your <span style={{color: "#E8433E"}}>API Traffic</span></h2>
