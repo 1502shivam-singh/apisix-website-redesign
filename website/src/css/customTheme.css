@@ -296,6 +296,11 @@ a:hover {
 }
 
 /*Hero section*/
+
+.hero-title, .hero-subtitle, .hero-ctas {
+  opacity: 0;
+}
+
 .hero-sec-wrap{
   display: flex;
   background: #f4f4f4ad;
