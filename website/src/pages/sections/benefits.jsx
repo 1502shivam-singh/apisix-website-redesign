@@ -84,7 +84,7 @@ function Benefits(props) {
                         </p>
                     </div>
                     <div className="benefit-infograph">
-                        <Performance style={{width: screenWidth >=768 ? "35%" : "50%"}}/>
+                        <Performance style={{width: screenWidth >=768 ? "35%" : "45%"}}/>
                     </div>
                 </div>
 
@@ -92,7 +92,7 @@ function Benefits(props) {
                     <div className="benefit-infograph">
                         <Security style={{width: screenWidth >=768 ? "75%" : "100%", position: "relative", left: screenWidth >=768 ? "3%" : "0"}}/>
                     </div>
-                    <div style={{width: screenWidth > 768 ? "50%" : "100%"}}>
+                    <div style={{width: screenWidth > 768 ? "50%" : "190%"}}>
                         <h3 className="feat-head-desc">Security</h3>
                         <h1 className="feat-head add-left-margin">Shield against the malicious</h1>
                         <p className="feat-desc add-left-margin"> 
@@ -110,13 +110,13 @@ function Benefits(props) {
                         </p>
                     </div>
                     <div className="benefit-infograph">
-                        <Scale style={{width: screenWidth >=768 ? "50%": "90%"}}/>
+                        <Scale style={{width: screenWidth >=768 ? "50%": "80%"}}/>
                     </div>
                 </div>
 
                 <div ref={dynamic} className="row-benefit row-reverse row-hidden" >
                     <div className="benefit-infograph">
-                        <Dynamic style={{width: screenWidth >=768 ? "50%" : "100%"}}/>
+                        <Dynamic style={{width: screenWidth >=768 ? "50%" : "90%"}}/>
                     </div>
                     <div style={{width: screenWidth > 768 ? "50%" : "100%"}}>
                         <h3 className="feat-head-desc">Fully dynamic</h3>
@@ -136,7 +136,7 @@ function Benefits(props) {
                         </p>
                     </div>
                     <div className="benefit-infograph">
-                        <Multiplatform style={{width: screenWidth >=768 ? "50%" : "100%"}}/>
+                        <Multiplatform style={{width: screenWidth >=768 ? "50%" : "90%"}}/>
                     </div>
                 </div>
 

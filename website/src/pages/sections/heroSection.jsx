@@ -62,7 +62,7 @@ function HeroSection(props) {
                         <ArrowAnim />
                     </div>
                 </div>
-                <div ref={canRef}>
+                <div ref={canRef} className="add-margin">
                     <HeroCanvas></HeroCanvas>
                 </div>
             </div>
