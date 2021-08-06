@@ -33,13 +33,37 @@ function HeroSection(props) {
             stagger: 0.3
         });
         
-        gsap.fromTo(".Architecture_compress_svg__dashboardRect",{
-            opacity: 0,
-        },{
-            opacity: 1,
-            duration: 1,
-            repeat: -1,
-        })
+        /* Floating widgets in diagram effect (To replace) */
+        // gsap.fromTo([".Architecture_compress_svg__apisixRect", ".Architecture_compress_svg__clientRect"],{
+        //     y: 10,
+        // },{
+        //     y: -10,
+        //     duration: 1.0,
+        //     repeat: -1,
+        //     yoyo: true,
+        //     ease: "power1.out",
+        //     yoyoEase: "power2.inOut"
+        // });
+        // gsap.fromTo([".Architecture_compress_svg__servicesRect"],{
+        //     y: -10,
+        // },{
+        //     y: 10,
+        //     duration: 1.0,
+        //     repeat: -1,
+        //     yoyo: true,
+        //     ease: "power1.out",
+        //     yoyoEase: "power2.inOut"
+        // });
+        // gsap.fromTo([".Architecture_compress_svg__dashboardRect",".Architecture_compress_svg__etcdRect"],{
+        //     y: 5,
+        // },{
+        //     y: -5,
+        //     duration: 1.0,
+        //     repeat: -1,
+        //     yoyo: true,
+        //     ease: "power1.out",
+        //     yoyoEase: "power2.inOut"
+        // });
 
         return () => {
             tl.pause(0).kill(true);
