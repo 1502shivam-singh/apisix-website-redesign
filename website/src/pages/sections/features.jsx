@@ -86,6 +86,7 @@ function Features() {
                 observers.push(new IntersectionObserver((entries, opts)=>{
                     entries.forEach(entry =>  {
                         if (entry.isIntersecting) {
+                            observers[i-1].disconnect();
                             gsap.fromTo(elems[i-1],{
                                 opacity: 0,
                                 y: 90,
@@ -96,16 +97,13 @@ function Features() {
                                 ease: "power3.out",
                                 yoyo: true,
                                 yoyoEase: "power3.inOut",
-                                onComplete: ()=>{
-                                    observers[i-1].disconnect();
-                                }
                             });
                         }
                     }
                   );
                 }, {
                     root: null,
-                    threshold: .1
+                    threshold: .2
                 }));
             }
 
