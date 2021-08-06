@@ -165,6 +165,7 @@ function HeroCanvas() {
     useEffect(() => {
       gsap.to(overlayRef.current,{
         height: 0,
+        delay: window.innerWidth >= 768 ? 0 : 0.3,
         duration: 2.1,
         ease: "Expo.easeInOut"
       });

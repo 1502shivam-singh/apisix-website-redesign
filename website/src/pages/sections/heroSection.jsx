@@ -17,7 +17,7 @@ function HeroSection(props) {
         
         let tl = gsap.timeline({
             defaults: { // children inherit these defaults
-                delay: 1.5,
+                delay: window.innerWidth >= 768 ? 1.5 : 0.01,
                 duration: 0.5,
                 ease: "Expo.easeInOut" 
             },
