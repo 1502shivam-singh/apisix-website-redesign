@@ -34,7 +34,7 @@ function Architecture(props) {
 
         let observer = new IntersectionObserver(onIntersection, {
             root: null,
-            threshold: .6
+            threshold: 0.4,
         })
           
         function onIntersection(entries, opts){
