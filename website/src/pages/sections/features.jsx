@@ -49,6 +49,7 @@ function Features() {
         const popupValue = window.innerHeight-30;
         
         let tl;
+        let observers = [];
 
         if(window.innerWidth > 1100) {
             tl = gsap.timeline({
@@ -79,40 +80,38 @@ function Features() {
             });
         } else {
             // Mobile
+              
+            const elems = [img1col.current, img2col.current, img3col.current]
+            for (let i=1; i<4; i++) {
+                observers.push(new IntersectionObserver((entries, opts)=>{
+                    entries.forEach(entry =>  {
+                        if (entry.isIntersecting) {
+                            gsap.fromTo(elems[i-1],{
+                                opacity: 0,
+                                y: 90,
+                            }, {
+                                opacity: 1,
+                                y: 0,
+                                duration: 0.5,
+                                ease: "power3.out",
+                                yoyo: true,
+                                yoyoEase: "power3.inOut",
+                                onComplete: ()=>{
+                                    observers[i-1].disconnect();
+                                }
+                            });
+                        }
+                    }
+                  );
+                }, {
+                    root: null,
+                    threshold: .1
+                }));
+            }
 
-            gsap.to(img1col.current,{
-                scrollTrigger: {
-                    id: "feat1",
-                    trigger: img1col.current,
-                    start: "top "+(popupValue)+"px",
-                },
-                opacity: 1,
-                y: -40,
-                duration: 0.5,
-                ease: "Expo.easeInOut"
-            });
-            gsap.to(img2col.current,{
-                scrollTrigger: {
-                    id: "feat2",
-                    trigger: img2col.current,
-                    start: "top "+(popupValue)+"px",
-                },
-                opacity: 1,
-                y: -50,
-                duration: 0.5,
-                ease: "Expo.easeInOut"
-            });
-            gsap.to(img3col.current,{
-                scrollTrigger: {
-                    id: "feat3",
-                    trigger: img3col.current,
-                    start: "top "+(popupValue)+"px",
-                },
-                opacity: 1,
-                y: -50,
-                duration: 0.5,
-                ease: "Expo.easeInOut"
-            });
+            observers.forEach((it, index)=>{
+                it.observe(elems[index]);
+            })
         }
 
         return ()=>{
