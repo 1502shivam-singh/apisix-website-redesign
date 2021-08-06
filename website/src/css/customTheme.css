@@ -52,11 +52,6 @@ html[data-theme='dark'] {
   --color-downloads-dropdown-items: #4c4e50;
 }
 
-/* @font-face {
-  font-family: 'MaisonNeue-Thin';
-  src: local('MaisonNeue-Thin'), url(../fonts/MaisonNeue-Thin.otf) format('opentype');
-  font-display: swap;
-} */
 @font-face {
   font-family: 'MaisonNeue-Medium';
   src: local('MaisonNeue-Medium'), url(../fonts/MaisonNeue-Medium.otf) format('opentype');
@@ -77,11 +72,6 @@ html[data-theme='dark'] {
   src: local('MaisonNeue-Demi'), url(../fonts/MaisonNeue-Demi.otf) format('opentype');
   font-display: swap;
 }
-/* @font-face {
-  font-family: 'MaisonNeue-Black';
-  src: local('MaisonNeue-Black'), url(../fonts/MaisonNeue-Black.otf) format('opentype');
-  font-display: swap;
-} */
 @font-face {
   font-family: 'MaisonNeue-ExtraBold';
   src: local('MaisonNeue-ExtraBold'), url(../fonts/MaisonNeue-ExtraBold.otf) format('opentype');
@@ -295,6 +285,17 @@ a:hover {
   stroke-dashoffset: 1002;
 }
 
+.Architecture_compress_svg__arrow1,
+.Architecture_compress_svg__arrow2,
+.Architecture_compress_svg__arrow3,
+.Architecture_compress_svg__arrow5,
+.Architecture_compress_svg__arrow6,
+.Architecture_compress_svg__arrow7,
+.Architecture_compress_svg__arrow8,
+.Architecture_compress_svg__arrow9 {
+  stroke-dasharray: 10000;
+}
+
 /*Hero section*/
 
 .hide-title, .hide-subtitle, .hide-ctas {
@@ -406,7 +407,8 @@ a:hover {
 }
 
 .arch {
-  background: #E2ECFF;
+  background: linear-gradient(180deg, #E2ECFF 15%, #FFF 90%);
+  /* background: #E2ECFF; */
   position: relative;
   z-index: 1;
   padding: 50px 0;
