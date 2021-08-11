@@ -41,40 +41,41 @@ function OssCanvas() {
             controls = new OrbitControls( camera, renderer.domElement );
             controls.enableZoom = false;
 
-            const radius = window.innerWidth > 768 ? 7 : 5;  
+            const radius = window.innerWidth > 768 ? 5 : 5;  
             const detail = 8; 
+            // Make overall geometry like an atom, adding 4 loops and aligning them like that would do
             const geometry = new THREE.IcosahedronGeometry(radius, detail);
+
             camera.position.z = 2;
+            camera.position.x = 3;
             
             controls.update();
             
             scene = new THREE.Scene();
             renderer.setSize(canvasWidth, canvasHeight);
             
-            scene.background = new THREE.Color(0xfff8f6);
+            scene.background = new THREE.Color(0x0a0a0a);
             
             material = new THREE.MeshBasicMaterial({color: 0x615D5D, wireframe: true});
             
             mesh = new THREE.Mesh(geometry, material);
-
+            
             scene.add(mesh);
             mesh.position.set(3, 0, -9.5);
 
             controls.target.copy(mesh.position)
             
             controls.update();
-            
-
             renderer.setPixelRatio(window.devicePixelRatio);
+
             onWindowResize();
         }
       
         function animate() {
             requestAnimationFrame(animate);
 
-            mesh.rotation.x += 0.001;
-            mesh.rotation.y += 0.001;
-            mesh.rotation.z += 0.001;
+            mesh.rotation.x += 0.005;
+            mesh.rotation.y += 0.005;
 
             controls.update();
             
