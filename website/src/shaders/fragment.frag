@@ -32,5 +32,6 @@
     float circle = step((1.0 / 16.0), distance(st, mouse)); // Radius is 1/16th of the NDC
 
     vec3 bgColor = mix(vec3(0.84, 0.808, 0.725), vec3(circle), 0.5);
-    gl_FragColor = vec4(bgColor, 1.0);
+
+    gl_FragColor = vec4(vec3(1.0, 0.0, 0.0), 1.0);
   }

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import * as THREE from "three";
 import gsap from "gsap"
+import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 import "../../../css/customTheme.css";
 import vertex from '!!raw-loader!../../../shaders/vertex.vert';
 import fragment from '!!raw-loader!../../../shaders/fragment.frag';
@@ -9,7 +10,7 @@ function HeroCanvas() {
     const canvasRef = useRef(0);
     const overlayRef = useRef(0);
 
-    let canvasHeight, canvasWidth, screenWidth, screenHeight;
+    let canvasHeight, canvasWidth, screenWidth, screenHeight, controls;
 
     useEffect(() => {
 
@@ -68,6 +69,10 @@ function HeroCanvas() {
         });
       });
   
+      function getRandom(a, b) {
+        return a + (b - a) * Math.random();
+      }
+
       init(canvasWidth, canvasHeight);
       animate();
   
@@ -78,15 +83,23 @@ function HeroCanvas() {
         renderer.autoClearColor = false;
   
         camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+        controls = new OrbitControls( camera, renderer.domElement );
+        // Tested and checked 
+        controls.enableZoom = false;
+        controls.enablePan = false;
+        controls.enabled = false;
 
-        var geometry = new THREE.PlaneBufferGeometry(width / height, 1, 3, 3);
-        
-        const radius = 3.5;  
-        const detail = 8; 
-        var obliqueGeometry = new THREE.IcosahedronGeometry(radius, detail);
+        var geometry = new THREE.PlaneBufferGeometry(width / height, 1, 200, 200);
 
-        geometry.scale(100.0, 100.0, 1.0);
-        // geometry.scale(10.0, 10.0, 1.0);
+        let count = geometry.attributes.position.count;
+        let arrSize = new THREE.BufferAttribute(new Float32Array(count), 1);
+
+        for (let i = 0; i < arrSize.count; i++) {
+          arrSize.array[i] = getRandom(0, 1)
+        }
+        geometry.addAttribute("aSize", arrSize, 1);
+
+        geometry.scale(2.0, 1.0, 1.0);
 
         scene = new THREE.Scene();
         renderer.setSize(canvasWidth, canvasHeight);
@@ -113,28 +126,32 @@ function HeroCanvas() {
         scene.background = new THREE.Color('red');
   
         camera.position.z = 5;
+        controls.update();
 
         material = new THREE.ShaderMaterial({
           uniforms: uniforms,
           vertexShader: vertex, // vertexShader,
           fragmentShader: fragment, // fragmentShader,
-          // wireframe: true,
+          wireframe: true,
           side: THREE.DoubleSide
         });
-  
-        obliqueMaterial = new THREE.MeshBasicMaterial({color: 0x1E2123, wireframe: true});
         
-        mesh = new THREE.Mesh(geometry, material);
-        mesh.position.set(0, 0, -20);
-        // mesh.position.set(0, -8, -20.0);
-        // mesh.position.set(0, -5, -9.5);
-        // mesh.rotation.x -= Math.PI/2;
-        scene.add(mesh);
+        mesh = new THREE.Points(geometry, material);
         
-        obliqueMesh = new THREE.Mesh(obliqueGeometry, obliqueMaterial)
-        obliqueMesh.position.set(0, 0, -9.5);
-        scene.add(obliqueMesh);
+        let backGeometry = new THREE.PlaneBufferGeometry(width / height, 1, 200, 200);
+        let bgMaterial = new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: false});
+        let background = new THREE.Mesh(backGeometry, bgMaterial);
+      
+        backGeometry.scale(50,50,1);
+        background.position.set(10,10,-10);
+        background.rotation.set(Math.PI/2,0,0);
 
+        scene.add(mesh);
+        scene.add(background);
+
+        camera.position.set( 0.16430412417444037, -1.5202138879420155, 0.20892968987792318);
+        controls.update();
+        
         renderer.setPixelRatio(window.devicePixelRatio);
         onWindowResize();
       }
@@ -150,9 +167,8 @@ function HeroCanvas() {
   
       function animate() {
         requestAnimationFrame(animate);
-        obliqueMesh.rotation.x+=0.005;
-        obliqueMesh.rotation.y+=0.005;
         material.uniforms.u_time.value += 0.05;
+        controls.update();
         renderer.render(scene, camera);
       }
 
