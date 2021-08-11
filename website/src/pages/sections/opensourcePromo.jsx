@@ -1,5 +1,6 @@
 import React from "react";
 import GitHub from "../../assets/icons/github-logo.svg";
+import YtPromo from "../../assets/videos/apisix.mp4";
 import OssCanvas from "./components/ossCanvas"
 import "../../css/customTheme.css";
 
@@ -17,14 +18,14 @@ function OpensourcePromo(props) {
                         </div>
                     </div>
                     <div className="docs-promo-video">
-                        {/* <iframe src="https://www.youtube.com/embed/iEegNXOtEhQ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
+                        <video preload="none" src={YtPromo} loading="lazy" autoPlay={true} poster="" muted={true} loop={true} width="100%" height="100%" controls></video>
                     </div>
                 </div>
             
                 <div className="oss-promo">
                     <div className="oss-promo-text">
                         <h3 className="oss-promo-head">Be a part of building APISIX</h3>
-                        <div className="oss-promo-subtitle" style={{color: "#615D5D"}}>
+                        <div className="oss-promo-subtitle" style={{color: "rgb(199, 199, 199)"}}>
                             <p>APISIX is opensource and ever-growing. Contributors are always welcome. Reach out to us on GitHub</p>
                             <div style={{display: "flex", fontSize: "0.95rem"}}>
                                 <GitHub style={{width: "20px", margin: "0 10px 0 0"}} />
