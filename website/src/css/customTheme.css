@@ -487,12 +487,13 @@ a:hover {
 }
 
 .feat-head-desc{
-  font-size: 0.95rem;
+  font-size: 1.4rem;
   color: #363130;
   opacity: 0.5;
   position: relative;
   left: 17%;
   margin: 0;
+  line-height: 1.8;
   width: fit-content;
 }
 
@@ -698,9 +699,12 @@ a:hover {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  background: #121010;
+  color: white;
 }
 
 .oss-promo-infograph {
+  background: #0a0a0a;
   width: 50%;
   height: 100%;
 }
@@ -1112,6 +1116,9 @@ captions - 0.95rem (15px)
 
   .oss-promo {
     flex-flow: column;
+    background: #121010;
+    padding: 50px 0 0 0;
+
   }
 
   .oss-promo-text {
@@ -1120,6 +1127,7 @@ captions - 0.95rem (15px)
 
   .oss-promo-infograph {
     width: 100%;
+    margin-top: 30px;
   }
 
   .event-card {
