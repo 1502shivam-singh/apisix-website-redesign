@@ -27,9 +27,12 @@ function Architecture(props) {
             strokeDashoffset: 10000
         }, {
             strokeDashoffset: 0,
-            duration: 3,
-            stagger: "0.2",
+            duration: 5,
+            // stagger: "0.2",
+            stagger: 0.3,
             ease: "power2.inOut",
+            // stroke: "#FE7F80",
+            stroke: "red",
         });
 
         let observer = new IntersectionObserver(onIntersection, {
