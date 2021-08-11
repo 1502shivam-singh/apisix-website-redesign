@@ -17,7 +17,7 @@ function HeroSection(props) {
         
         let tl = gsap.timeline({
             defaults: { // children inherit these defaults
-                delay: window.innerWidth >= 768 ? 1.5 : 0,
+                delay: window.innerWidth >= 768 ? 1.5 : 0.01,
                 duration: 0.5,
                 ease: "Expo.easeInOut" 
             },
@@ -32,38 +32,6 @@ function HeroSection(props) {
             y: 0,
             stagger: 0.3
         });
-        
-        /* Floating widgets in diagram effect (To replace) */
-        // gsap.fromTo([".Architecture_compress_svg__apisixRect", ".Architecture_compress_svg__clientRect"],{
-        //     y: 10,
-        // },{
-        //     y: -10,
-        //     duration: 1.0,
-        //     repeat: -1,
-        //     yoyo: true,
-        //     ease: "power1.out",
-        //     yoyoEase: "power2.inOut"
-        // });
-        // gsap.fromTo([".Architecture_compress_svg__servicesRect"],{
-        //     y: -10,
-        // },{
-        //     y: 10,
-        //     duration: 1.0,
-        //     repeat: -1,
-        //     yoyo: true,
-        //     ease: "power1.out",
-        //     yoyoEase: "power2.inOut"
-        // });
-        // gsap.fromTo([".Architecture_compress_svg__dashboardRect",".Architecture_compress_svg__etcdRect"],{
-        //     y: 5,
-        // },{
-        //     y: -5,
-        //     duration: 1.0,
-        //     repeat: -1,
-        //     yoyo: true,
-        //     ease: "power1.out",
-        //     yoyoEase: "power2.inOut"
-        // });
 
         return () => {
             tl.pause(0).kill(true);

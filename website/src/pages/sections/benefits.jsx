@@ -1,11 +1,11 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Performance from "../../assets/images/performance.svg";
-import Security from "../../assets/images/security-tagged.svg";
-import Scale from "../../assets/images/scale.svg";
-import Dynamic from "../../assets/images/infographs/dynamic_compress.svg";
-import Multiplatform from "../../assets/images/multiplatform.svg";
+import Performance from "../../assets/images/infographs/performance-compress.svg";
+import Security from "../../assets/images/infographs/security-compress.svg";
+import Scale from "../../assets/images/infographs/scale-compress.svg";
+import Dynamic from "../../assets/images/infographs/dynamic-compress.svg";
+import Multiplatform from "../../assets/images/infographs/multiplatform-compress.svg";
 import "../../css/customTheme.css";
 
 function Benefits(props) {
@@ -20,6 +20,214 @@ function Benefits(props) {
     gsap.registerPlugin(ScrollTrigger);
     
     const screenWidth = props.screenWidth;
+
+    useEffect(() => {
+        let tweenTls = [];
+        let observers = [];
+
+        for (let i=0; i<5; i++) {
+            tweenTls.push(gsap.timeline({
+                paused: true,
+                yoyo: true, 
+                yoyoEase: "power3.out",
+                repeat: -1,
+                defaults: { // children inherit these defaults
+                    yoyo: true,
+                    ease: "power3.inOut",
+                    yoyoEase: "power3.out"
+                },
+            }));
+        }
+
+
+        let cirs = [];
+        let ns = [];
+        const colors = ["#FE7F80", "white", "red"];
+        const pathColors = ["#FE7F80", "black"];
+
+        for (let i=1; i<28; i++) {
+            cirs.push(".scale-compress_svg__cir"+i);
+            ns.push(".scale-compress_svg__n"+i);
+        }
+        
+        // Performance anim
+        tweenTls[0].fromTo(".performance-compress_svg__network",{   
+            strokeDashoffset: 1000, 
+            stroke: "black"
+        },{
+            strokeDashoffset: 0,
+            duration: 1,
+            strokeWidth: 5,
+            stroke: "orange",
+            ease: "power2.in",
+            yoyoEase: "power2.out",
+            repeat: -1,
+        })
+        .fromTo(".performance-compress_svg__lightning",{
+            fill: "orange",
+        }, {
+            fill: "red",
+            duration: 1,
+            // ease: "none",
+            // yoyoEase: "none",
+            repeat: -1,
+        },"-=1");
+        
+        // Security anim
+        tweenTls[1].fromTo([".security-compress_svg__malWarn-square", ".security-compress_svg__malConn"],{   
+            fill: "#FA5252",
+        },{
+            fill: "yellow",
+            duration: 0.5,
+            repeat: -1,
+            repeatDelay: 0.1,
+        })
+        for (let i = 1; i < 4; i++) {
+            tweenTls[1].fromTo(".security-compress_svg__conn"+i, {
+                strokeWidth: 4,
+                strokeDasharray: 25,
+                strokeDashoffset: 200,
+            }, {
+                strokeDashoffset: 0,
+                duration: 2.5,
+                repeat: -1,
+                ease: "linear",
+                yoyoEase: "linear",
+                // repeatDelay: 0.1,
+            })
+        }
+
+        // Scaling anim
+        for (let i = 0; i < 27; i++) { 
+            tweenTls[2].fromTo(cirs[i],{    // change colors of circles
+                fill: gsap.utils.random(colors),
+            },{
+                fill:  gsap.utils.random(colors),
+                duration: 0.3,
+                repeat: -1,
+                repeatDelay: 0.1,
+            })
+            tweenTls[2].fromTo(ns[i],{    // change colors of circles
+                stroke: gsap.utils.random(pathColors),
+            },{
+                stroke:  gsap.utils.random(pathColors),
+                duration: 0.3,
+                repeat: -1,
+                repeatDelay: 0.1,
+            })
+        }
+        
+        // Dynamic anim
+        tweenTls[3].repeatDelay(1.5);
+        tweenTls[3].fromTo([".dynamic-compress_svg__rcard"],{
+            x: -400,
+            opacity: 0,
+        },{
+            opacity: 1,
+            x: 0,
+            ease: "sin.inOut",
+            duration: 1.5,
+        })
+        .fromTo(".dynamic-compress_svg__arrow", {
+            opacity: 0,
+        }, {
+            opacity: 1,
+            ease: "power3.out",
+            duration: 0.5,
+        })
+        .fromTo(".dynamic-compress_svg__lightning", {
+            opacity: 0,
+            y: 10,
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power2.inOut",
+        });
+
+        // Multiplatform anim
+        for(let i = 1; i < 4; i++) {
+            tweenTls[4].fromTo(".multiplatform-compress_svg__server-port"+i,{    
+                fill: "#60E0F2",
+            },{
+                fill: "#ffdc21",
+                duration: 0.5,
+            });
+        }
+        
+        let standloneObserver = new IntersectionObserver(onIntersection, {
+            root: null,
+            threshold: 0.4,
+        })
+
+        let rot = 0;
+        const tweenArrow = gsap.fromTo(".multiplatform-compress_svg__arrows",
+        {
+            rotation: rot,
+        },{
+            rotation: -360+rot,
+            transformOrigin:"50% 50%",
+            ease: "power3.inOut",
+            duration: 3,
+            repeat: -1,
+            paused: true,
+            onComplete: () => {
+                rot -= 360;
+            }
+        });
+        const tweenFloat = gsap.fromTo(".multiplatform-compress_svg__lightning",{
+            y: -2.5,
+        },{
+            y: 5,
+            duration: 1,
+            ease: "linear",
+            repeat: -1,
+            yoyo: true,
+            paused: true,
+            yoyoEase: "linear",
+        });
+
+        function onIntersection(entries, opts){
+            entries.forEach(entry =>  {
+                if (entry.isIntersecting) {
+                    tweenArrow.paused(false);
+                    tweenFloat.paused(false);
+                } else {
+                    tweenArrow.paused(true);
+                    tweenFloat.paused(true);
+                }
+            });
+        }
+          
+        standloneObserver.observe(multiplatform.current);
+
+        const elems = [performance.current, security.current, scale.current, dynamic.current, multiplatform.current];
+        for (let i=0; i<5; i++) {
+            observers.push(new IntersectionObserver((entries, opts)=>{
+                entries.forEach(entry =>  {
+                    if (entry.isIntersecting) {
+                        tweenTls[i].paused(false);
+                    } else {
+                        tweenTls[i].paused(true);
+                    }
+                }
+              );
+            }, {
+                root: null,
+                threshold: .2
+            }));
+        }
+
+        observers.forEach((it, index)=>{
+            it.observe(elems[index]);
+        });
+
+        return () => {
+            observers.forEach((it, index)=>{
+                it.disconnect();
+            });
+        }
+    }, [])
 
     useEffect(() => {
         let tl;

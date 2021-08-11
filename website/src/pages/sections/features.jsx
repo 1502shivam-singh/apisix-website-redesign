@@ -109,7 +109,7 @@ function Features() {
 
             observers.forEach((it, index)=>{
                 it.observe(elems[index]);
-            })
+            });
         }
 
         return ()=>{
@@ -172,9 +172,9 @@ function Features() {
                 </div>
 
                 <div ref={pinDiv} className="right-pane" style={{width: "50%", height: "100vh", position: "relative", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center"}}>
-                    <img ref={img1} className="i-image imagePosition" src={Dashboard} alt=""/>
-                    <img ref={img2} className="n-image imagePosition" src={Snippet} alt=""/>
-                    <img ref={img3} className="n-image imagePosition" src={Plugin} alt=""/>
+                    <img ref={img1} className="i-image imagePosition" src={Dashboard} loading="lazy" alt="apisix-dashboard"/>
+                    <img ref={img2} className="n-image imagePosition" src={Snippet} loading="lazy" alt="code-snippet"/>
+                    <img ref={img3} className="n-image imagePosition" src={Plugin} loading="lazy" alt="plugin-workflow"/>
                 </div>
             </div>
 
