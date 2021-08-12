@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import HLDesign from "../../assets/images/infographs/Architecture_compress.svg";
+import HLDesign from "../../assets/images/infographs/Architecture.svg";
 import "../../css/customTheme.css";
 import gsap from "gsap";
 import Pattern from "../../assets/images/PatternGrouped.svg";
@@ -16,7 +16,7 @@ function Architecture(props) {
 
         let tlStroke = gsap.timeline({
             paused: true,
-            defaults: { // children inherit these defaults
+            defaults: {
                 ease: "power2.inOut",
                 yoyo: true,
                 repeat: -1,
@@ -28,10 +28,8 @@ function Architecture(props) {
         }, {
             strokeDashoffset: 0,
             duration: 5,
-            // stagger: "0.2",
             stagger: 0.3,
             ease: "power2.inOut",
-            // stroke: "#FE7F80",
             stroke: "red",
         });
 

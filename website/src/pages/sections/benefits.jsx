@@ -1,11 +1,13 @@
 import React, { useRef, useEffect } from "react";
+import Link from "@docusaurus/Link";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Performance from "../../assets/images/infographs/performance-compress.svg";
-import Security from "../../assets/images/infographs/security-compress.svg";
-import Scale from "../../assets/images/infographs/scale-compress.svg";
-import Dynamic from "../../assets/images/infographs/dynamic-compress.svg";
-import Multiplatform from "../../assets/images/infographs/multiplatform-compress.svg";
+import Performance from "../../assets/images/infographs/performance.svg";
+import Security from "../../assets/images/infographs/security.svg";
+import Scale from "../../assets/images/infographs/scale.svg";
+import Dynamic from "../../assets/images/infographs/dynamic.svg";
+import Multiplatform from "../../assets/images/infographs/multiplatform.svg";
 import "../../css/customTheme.css";
 
 function Benefits(props) {
@@ -31,7 +33,7 @@ function Benefits(props) {
                 yoyo: true, 
                 yoyoEase: "power3.out",
                 repeat: -1,
-                defaults: { // children inherit these defaults
+                defaults: {
                     yoyo: true,
                     ease: "power3.inOut",
                     yoyoEase: "power3.out"
@@ -39,19 +41,18 @@ function Benefits(props) {
             }));
         }
 
-
         let cirs = [];
         let ns = [];
         const colors = ["#FE7F80", "white", "red"];
         const pathColors = ["#FE7F80", "black"];
 
         for (let i=1; i<28; i++) {
-            cirs.push(".scale-compress_svg__cir"+i);
-            ns.push(".scale-compress_svg__n"+i);
+            cirs.push(".scale_svg__cir"+i);
+            ns.push(".scale_svg__n"+i);
         }
         
         // Performance anim
-        tweenTls[0].fromTo(".performance-compress_svg__network",{   
+        tweenTls[0].fromTo(".performance_svg__network",{   
             strokeDashoffset: 1000, 
             stroke: "black"
         },{
@@ -63,7 +64,7 @@ function Benefits(props) {
             yoyoEase: "power2.out",
             repeat: -1,
         })
-        .fromTo(".performance-compress_svg__lightning",{
+        .fromTo(".performance_svg__lightning",{
             fill: "orange",
         }, {
             fill: "red",
@@ -74,7 +75,7 @@ function Benefits(props) {
         },"-=1");
         
         // Security anim
-        tweenTls[1].fromTo([".security-compress_svg__malWarn-square", ".security-compress_svg__malConn"],{   
+        tweenTls[1].fromTo([".security_svg__malWarn-square", ".security_svg__malConn"],{   
             fill: "#FA5252",
         },{
             fill: "yellow",
@@ -83,7 +84,7 @@ function Benefits(props) {
             repeatDelay: 0.1,
         })
         for (let i = 1; i < 4; i++) {
-            tweenTls[1].fromTo(".security-compress_svg__conn"+i, {
+            tweenTls[1].fromTo(".security_svg__conn"+i, {
                 strokeWidth: 4,
                 strokeDasharray: 25,
                 strokeDashoffset: 200,
@@ -119,7 +120,7 @@ function Benefits(props) {
         
         // Dynamic anim
         tweenTls[3].repeatDelay(1.5);
-        tweenTls[3].fromTo([".dynamic-compress_svg__rcard"],{
+        tweenTls[3].fromTo([".dynamic_svg__rcard"],{
             x: -400,
             opacity: 0,
         },{
@@ -128,14 +129,14 @@ function Benefits(props) {
             ease: "sin.inOut",
             duration: 1.5,
         })
-        .fromTo(".dynamic-compress_svg__arrow", {
+        .fromTo(".dynamic_svg__arrow", {
             opacity: 0,
         }, {
             opacity: 1,
             ease: "power3.out",
             duration: 0.5,
         })
-        .fromTo(".dynamic-compress_svg__lightning", {
+        .fromTo(".dynamic_svg__lightning", {
             opacity: 0,
             y: 10,
         }, {
@@ -147,7 +148,7 @@ function Benefits(props) {
 
         // Multiplatform anim
         for(let i = 1; i < 4; i++) {
-            tweenTls[4].fromTo(".multiplatform-compress_svg__server-port"+i,{    
+            tweenTls[4].fromTo(".multiplatform_svg__server-port"+i,{    
                 fill: "#60E0F2",
             },{
                 fill: "#ffdc21",
@@ -161,7 +162,7 @@ function Benefits(props) {
         })
 
         let rot = 0;
-        const tweenArrow = gsap.fromTo(".multiplatform-compress_svg__arrows",
+        const tweenArrow = gsap.fromTo(".multiplatform_svg__arrows",
         {
             rotation: rot,
         },{
@@ -175,7 +176,7 @@ function Benefits(props) {
                 rot -= 360;
             }
         });
-        const tweenFloat = gsap.fromTo(".multiplatform-compress_svg__lightning",{
+        const tweenFloat = gsap.fromTo(".multiplatform_svg__lightning",{
             y: -2.5,
         },{
             y: 5,
@@ -225,6 +226,9 @@ function Benefits(props) {
         return () => {
             observers.forEach((it, index)=>{
                 it.disconnect();
+            });
+            tweenTls.forEach((it, index)=>{
+                it.pause(0).kill(true);
             });
         }
     }, [])
@@ -304,7 +308,7 @@ function Benefits(props) {
                         <h3 className="feat-head-desc">Security</h3>
                         <h1 className="feat-head add-left-margin">Shield against the malicious</h1>
                         <p className="feat-desc add-left-margin"> 
-                        Apache APISIX provides multiple security plugins for identity authentication and interface verification, putting stability and security first. For more information, check <a style={{color: "#e8433e"}} href="#">here</a>.
+                        Apache APISIX provides multiple security plugins for identity authentication and interface verification, putting stability and security first. For more information, check <Link style={{color: "#e8433e"}} to={useBaseUrl("docs/apisix/plugins/cors/")}>here</Link>.
                         </p>
                     </div>
                 </div>
