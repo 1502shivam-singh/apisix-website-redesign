@@ -11,6 +11,7 @@ function HeroCanvas() {
     const overlayRef = useRef(0);
 
     let canvasHeight, canvasWidth, screenWidth, screenHeight, controls;
+    let isLoaded = false, isRendering = false, animationFrame;
 
     useEffect(() => {
 
@@ -20,7 +21,7 @@ function HeroCanvas() {
       let mouse = {x: 0.5, y: 0.5};
       let fragMouse = {x: 0.5, y: 0.5};
 
-      let camera, mesh, scene, renderer, material, obliqueMaterial, obliqueMesh;//, uniforms;
+      let camera, mesh, scene, renderer, material;
 
       window.addEventListener('resize', onWindowResize, false);
   
@@ -72,9 +73,36 @@ function HeroCanvas() {
       function getRandom(a, b) {
         return a + (b - a) * Math.random();
       }
+    
+      let canvasObserver = new IntersectionObserver(onCanvasIntersection, {
+        root: null,
+        threshold: 0.01,
+      });
 
       init(canvasWidth, canvasHeight);
-      animate();
+  
+      function onCanvasIntersection(entries, opts){
+          entries.forEach(entry =>  {
+              if (entry.isIntersecting && isLoaded) {
+                  console.log(opts);
+                  if (isLoaded && !isRendering) {
+                    animate();
+                    console.log("render has been started");
+                  } else {
+                    console.log("Loading")
+                  }
+              } else {
+                if (animationFrame) {
+                  cancelAnimationFrame(animationFrame);
+                  isRendering = false;
+                  console.log("render has been halted");
+                }
+              }
+          }
+        );
+      }      
+  
+      canvasObserver.observe(canvasRef.current);
   
       function init(width, height) {
         const ctx = canvasRef.current;
@@ -84,7 +112,7 @@ function HeroCanvas() {
   
         camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
         controls = new OrbitControls( camera, renderer.domElement );
-        // Tested and checked 
+        
         controls.enableZoom = false;
         controls.enablePan = false;
         controls.enabled = false;
@@ -97,7 +125,7 @@ function HeroCanvas() {
         for (let i = 0; i < arrSize.count; i++) {
           arrSize.array[i] = getRandom(0, 1)
         }
-        geometry.addAttribute("aSize", arrSize, 1);
+        geometry.setAttribute("aSize", arrSize, 1);
 
         geometry.scale(2.0, 1.0, 1.0);
 
@@ -148,12 +176,15 @@ function HeroCanvas() {
 
         scene.add(mesh);
         scene.add(background);
-
+        
+        // Tested and checked 
         camera.position.set( 0.16430412417444037, -1.5202138879420155, 0.20892968987792318);
         controls.update();
         
         renderer.setPixelRatio(window.devicePixelRatio);
         onWindowResize();
+
+        isLoaded = true;
       }
   
       function onWindowResize(event) {
@@ -166,14 +197,16 @@ function HeroCanvas() {
       }
   
       function animate() {
-        requestAnimationFrame(animate);
+        animationFrame = requestAnimationFrame(animate);
         material.uniforms.u_time.value += 0.05;
         controls.update();
         renderer.render(scene, camera);
+        isRendering = true;
       }
 
       return ()=>{
         renderer.dispose();
+        canvasObserver.disconnect();
       }
     }, []);
 

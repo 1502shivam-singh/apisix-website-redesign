@@ -10,12 +10,15 @@ function OssCanvas() {
     const canvasRef = useRef(null);
 
     let canvasHeight, canvasWidth;
-    let camera, scene, renderer, material, mesh;
     
     useEffect(() => {
+
+        let camera, scene, renderer, material, mesh;
+        
         window.addEventListener('resize', onWindowResize, false);
         
         let controls;
+        let isLoaded = false, isRendering = false, animationFrame;
         
         if (screenWidth > 800) {
             canvasHeight = 500;
@@ -31,6 +34,11 @@ function OssCanvas() {
             renderer.setSize(canvasWidth, canvasHeight);
         }
       
+        let ossCanvasObserver = new IntersectionObserver(onOssCanvasIntersection, {
+            root: null,
+            threshold: 0.01,
+        });
+
         function init(width, height) {
 
             const ctx = canvasRef.current;
@@ -69,10 +77,12 @@ function OssCanvas() {
             renderer.setPixelRatio(window.devicePixelRatio);
 
             onWindowResize();
+
+            isLoaded = true;
         }
       
         function animate() {
-            requestAnimationFrame(animate);
+            animationFrame = requestAnimationFrame(animate);
 
             mesh.rotation.x += 0.005;
             mesh.rotation.y += 0.005;
@@ -80,13 +90,36 @@ function OssCanvas() {
             controls.update();
             
             renderer.render(scene, camera);
+            isRendering = true;
         }
       
         init(canvasWidth, canvasHeight);
-        animate();
+
+        function onOssCanvasIntersection(entries, opts){
+            entries.forEach(entry =>  {
+                if (entry.isIntersecting && isLoaded) {
+                    if (isLoaded && !isRendering) {
+                      animate();
+                      console.log("render has been started - OSS");
+                    } else {
+                      console.log("Loading")
+                    }
+                } else {
+                  if (animationFrame) {
+                    cancelAnimationFrame(animationFrame);
+                    isRendering = false;
+                    console.log("render has been halted - OSS");
+                  }
+                }
+            }
+          );
+        }      
+    
+        ossCanvasObserver.observe(canvasRef.current);
 
         return () => {
             renderer.dispose();
+            ossCanvasObserver.disconnect();
         }
     }, []);
 
