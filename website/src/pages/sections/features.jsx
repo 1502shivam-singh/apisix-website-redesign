@@ -126,7 +126,7 @@ function Features() {
                 <h3 className="feat-head-desc">Why APISIX ?</h3>
                 <h1 className="feat-head add-left-margin">Reduce time fighting bugs, focus on designing world-class systems</h1>
                 <p className="feat-desc add-left-margin">
-                    Apache APISIX is the first open source Low-Code API gateway. It comes with a simple, easy-to-use built-in Dashboard and a powerful and flexible interface for developers to use 
+                Apache APISIX is the first Open source API gateway, with a built-in low-code Dashboard offering a powerful and flexible interface for developers to use 
                 </p>
             </div>
 
