@@ -464,7 +464,7 @@ module.exports = {
     },
     colorMode: {
       defaultMode: 'light',
-      disableSwitch: true,
+      disableSwitch: false,
       respectPrefersColorScheme: false,
     },
     image: 'img/favicon.png',

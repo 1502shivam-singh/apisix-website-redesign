@@ -406,6 +406,10 @@ a:hover {
   height: auto;
 }
 
+.Architecture_svg__architecture {
+  font-family: MaisonNeue-Medium;
+}
+
 .arch {
   background: linear-gradient(180deg, #E2ECFF 15%, #FFF 90%);
   /* background: #E2ECFF; */
@@ -1102,13 +1106,14 @@ captions - 0.95rem (15px)
   
   .docs-promo {
     flex-flow: column-reverse;
+    padding: 50px 0;
   }
 
   .docs-promo-video {
     width: 100%;
   }
 
-  .docs-promo-video>iframe {
+  .docs-promo-video>video {
     padding: 0 26px 35px 26px;
     width: 100%;
     height: auto;
@@ -1162,4 +1167,8 @@ captions - 0.95rem (15px)
     width: 70%;
     padding: 0 0 60px 0;
   }
+}
+
+.react-toggle {
+  display: none;
 }

@@ -35,22 +35,33 @@ function DocPageContent({ currentDocRoute, versionMetadata, children }) {
     apisixHelmChart : "install",
     apisixDocker : "build-an-image-from-source"
   }
+  
   useEffect(() => {
+
+    document.querySelector(".react-toggle").style.display = "block";
+
     if(docsSidebars[sidebarName][0].label === pageId.general){
       document.querySelectorAll(".navbar__link--active")[0].text = "General";
+      document.querySelector(".react-toggle").style.display = "block";
     } else if (document.getElementById(pageId.apisix)) {
       document.querySelectorAll(".navbar__link--active")[0].text = "Apache APISIX";
+      document.querySelector(".react-toggle").style.display = "block";
     } else if (document.getElementById(pageId.apisixDashboard)) {
       document.querySelectorAll(".navbar__link--active")[0].text = "Apache APISIX Dashboard";
+      document.querySelector(".react-toggle").style.display = "block";
     } else if (document.getElementById(pageId.apisixIngressController)) {
       document.querySelectorAll(".navbar__link--active")[0].text = "Apache APISIX Ingress Controller";
+      document.querySelector(".react-toggle").style.display = "block";
     } else if (document.getElementById(pageId.apisixHelmChart)) {
       document.querySelectorAll(".navbar__link--active")[0].text = "Apache APISIX™ Helm Chart";
+      document.querySelector(".react-toggle").style.display = "block";
     } else if (document.getElementById(pageId.apisixDocker)) {
       document.querySelectorAll(".navbar__link--active")[0].text = "Apache APISIX™ Docker";
+      document.querySelector(".react-toggle").style.display = "block";
     }
     return () => {
-      console.log('\u{1F680} documentation changed')
+      console.log('\u{1F680} documentation changed');
+      document.querySelectorAll(".react-toggle ").style.display = "none";
     }
   }, []);
 

@@ -10,6 +10,7 @@ import { useThemeConfig, isSamePath } from "@docusaurus/theme-common";
 import useUserPreferencesContext from "@theme/hooks/useUserPreferencesContext";
 import useLockBodyScroll from "@theme/hooks/useLockBodyScroll";
 import useWindowSize, { windowSizes } from "@theme/hooks/useWindowSize";
+import useThemeContext from '@theme/hooks/useThemeContext';
 import useScrollPosition from "@theme/hooks/useScrollPosition";
 import Link from "@docusaurus/Link";
 import isInternalUrl from "@docusaurus/isInternalUrl";
@@ -208,6 +209,7 @@ function DocSidebar({
   docPluginId,
 }) {
   const showAnnouncementBar = useShowAnnouncementBar();
+  const {isDarkTheme, setLightTheme, setDarkTheme} = useThemeContext();
   const [showResponsiveSidebar, setShowResponsiveSidebar] = useState(false);
   const {
     navbar: { hideOnScroll },
@@ -215,6 +217,16 @@ function DocSidebar({
   } = useThemeConfig();
   useLockBodyScroll(showResponsiveSidebar);
   const windowSize = useWindowSize();
+
+  useEffect(() => {
+    if(!isDarkTheme) {
+      setDarkTheme(true);
+    }
+    return () => {
+      setLightTheme(true);
+    }
+  }, []);
+
   useEffect(() => {
     if (windowSize === windowSizes.desktop) {
       setShowResponsiveSidebar(false);
