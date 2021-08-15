@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import Link from "@docusaurus/Link";
 import useBaseUrl from "@docusaurus/useBaseUrl";
-import useThemeContext from '@theme/hooks/useThemeContext';
 import gsap from "gsap"
 import "../../css/customTheme.css";
 import HeroCanvas from "./components/heroCanvas"
@@ -14,12 +13,7 @@ function HeroSection(props) {
     const ctaRef = useRef(0)
     const canRef = useRef(0)
     
-    // const {isDarkTheme, setLightTheme, setDarkTheme} = useThemeContext();
-    
     useEffect(() => {
-        // if(isDarkTheme) {
-        //     setLightTheme(true);
-        // }
         
         let tl = gsap.timeline({
             defaults: {
@@ -28,7 +22,6 @@ function HeroSection(props) {
                 ease: "Expo.easeInOut" 
             },
         });
-
         
         tl.fromTo([titleRef.current, subtitleRef.current, ctaRef.current],{
             opacity: 0,
