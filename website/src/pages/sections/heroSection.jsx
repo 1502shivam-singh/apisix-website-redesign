@@ -15,11 +15,11 @@ function HeroSection(props) {
     const canRef = useRef(0)
     
     const {isDarkTheme, setLightTheme, setDarkTheme} = useThemeContext();
-    if(isDarkTheme) {
-        setLightTheme(true);
-    }
-
+    
     useEffect(() => {
+        if(isDarkTheme) {
+            setLightTheme(true);
+        }
         
         let tl = gsap.timeline({
             defaults: {
