@@ -1,19 +1,12 @@
 import React, { useEffect } from "react";
 import HLDesign from "../../assets/images/infographs/Architecture.svg";
 import "../../css/customTheme.css";
-import useThemeContext from '@theme/hooks/useThemeContext';
 import gsap from "gsap";
 import Pattern from "../../assets/images/PatternGrouped.svg";
 
 function Architecture(props) {
 
     const screenWidth = props.screenWidth;
-
-    const {isDarkTheme, setLightTheme, setDarkTheme} = useThemeContext();
-
-    if(isDarkTheme) {
-        setLightTheme(true);
-    }
 
     useEffect(() => {
         let strokePaths = []
