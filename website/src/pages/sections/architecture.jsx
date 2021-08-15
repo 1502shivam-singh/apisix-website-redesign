@@ -42,7 +42,6 @@ function Architecture(props) {
             entries.forEach(entry =>  {
                 if (entry.isIntersecting) {
                     tlStroke.paused(false);
-                    console.log(opts);
                 } else {
                     tlStroke.paused(true);
                 }

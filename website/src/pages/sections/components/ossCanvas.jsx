@@ -51,7 +51,7 @@ function OssCanvas() {
 
             const radius = window.innerWidth > 768 ? 5 : 5;  
             const detail = 8; 
-            // Make overall geometry like an atom, adding 4 loops and aligning them like that would do
+            
             const geometry = new THREE.IcosahedronGeometry(radius, detail);
 
             camera.position.z = 2;
@@ -100,7 +100,6 @@ function OssCanvas() {
                 if (entry.isIntersecting && isLoaded) {
                     if (isLoaded && !isRendering) {
                       animate();
-                      console.log("render has been started - OSS");
                     } else {
                       console.log("Loading")
                     }
@@ -108,7 +107,6 @@ function OssCanvas() {
                   if (animationFrame) {
                     cancelAnimationFrame(animationFrame);
                     isRendering = false;
-                    console.log("render has been halted - OSS");
                   }
                 }
             }

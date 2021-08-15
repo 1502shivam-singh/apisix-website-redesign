@@ -285,19 +285,7 @@ a:hover {
   stroke-dashoffset: 1002;
 }
 
-.Architecture_compress_svg__arrow1,
-.Architecture_compress_svg__arrow2,
-.Architecture_compress_svg__arrow3,
-.Architecture_compress_svg__arrow5,
-.Architecture_compress_svg__arrow6,
-.Architecture_compress_svg__arrow7,
-.Architecture_compress_svg__arrow8,
-.Architecture_compress_svg__arrow9 {
-  stroke-dasharray: 10000;
-}
-
 /*Hero section*/
-
 .hide-title, .hide-subtitle, .hide-ctas {
   opacity: 0;
 }
@@ -314,7 +302,6 @@ a:hover {
   width: 50vw;
   height: 100vh;
   background: #FFFFFF;
-  /* background: #EBE6DC; */
   top: -1px;
   right: 0px;
 }
@@ -335,10 +322,8 @@ a:hover {
 
 .hero-title {
   font-family: MaisonNeue-Bold;
-  /* color: #363130; */
   color: #121212;
   width: 42vw;
-  /* font-size: 3.5vw; */
   font-size: 4.2rem;
   letter-spacing: 0.2px;
   margin: 0;
@@ -348,21 +333,16 @@ a:hover {
   z-index: 100;
   font-size: 1.1rem;
   font-family: MaisonNeue-Light;
-  /* width: 775px; */
   position: relative;
   color: #615D5D;
   line-height: 30px;
-  /* left: 10px; */
   letter-spacing: 0.2px;
   margin: 25px 0;
 }
 
 .hero-ctas {
   display: flex;
-  /* width: 15vw; */
   align-items: center;
-  /* justify-content: space-between; */
-  /* margin: 10px 0 0 0; */
 }
 
 .btn {
@@ -372,7 +352,6 @@ a:hover {
   border: none;
   color: white;
   padding: 5px 20px 5px 20px;
-  /* width: 24px; */
   border-radius: 20px;
   font-size: 1rem;
   text-decoration: none;
@@ -598,7 +577,6 @@ a:hover {
 }
 
 .benefit{
-  /* background: #FFEFEF; */
   background: #fff8f6;
   padding: 50px 0;
 }
@@ -957,24 +935,7 @@ a:hover {
   color: var(--color-help-subtitle);
 }
 
-/*
-
-3 font-sizes
-
-On phones (checked with other sites) -
-title text (heading) - 2.13rem (34px)
-body text - 1.13rem (18px)
-captions - 0.95rem (15px)
-
-On desktop
-title text (heading) - 2.4rem (38px)
-body text - 1.13rem (18px)
-captions - 0.95rem (15px)
-
-*/
-
 /* Mobile-phones and tablet styles */
-
 @media only screen and (min-device-width: 360px) and (max-device-width: 768px) {
   .hero-sec-wrap{
     display: block;
@@ -1068,7 +1029,6 @@ captions - 0.95rem (15px)
   }
 
   .benefit{
-    /* background: #FFEFEF; */
     background: #fff8f6;
     padding: 50px 0;
     height: 100vh;

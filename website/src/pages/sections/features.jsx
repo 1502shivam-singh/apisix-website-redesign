@@ -46,7 +46,6 @@ function Features() {
 
     useEffect(() => {
         const value = window.innerHeight*2;
-        const popupValue = window.innerHeight-30;
         
         let tl;
         let observers = [];

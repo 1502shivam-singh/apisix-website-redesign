@@ -153,27 +153,20 @@
     value = aSize;
     vec4 ecPosition = modelViewMatrix * vec4( pos, 1.0 );
     float magnitude = distance(pos, vec3(0.0));
-    // For scaling down the x - coordinate system according to the aspect ratio 
-    // for unstretched shapes meshes (scaling x axis for devices with longer width
-    // and scaling y axis for devices with longer heights, mobile - this needs to be done)
 
     float noiseFreq = 5.5;
     float noiseAmp = 1.55;
     vec3 noisePos = vec3(pos.x * noiseFreq + u_time, pos.y, pos.z);
-    vec3 tnorm = normalize(normalMatrix * normal);
 
     if(distance(u_mouse,pos.xy)<=0.9) 
     {
       float vertexDistance = distance(u_mouse, pos.xy);
       float height = ((Gaussian_h+0.05)* exp(-(0.5*pow((vertexDistance)/Gaussian_sd, 2.0))));
-      // multiply height with random vertex attribute 'aSize' per vertex, to create the noise bump effect 
-
       pos.z += sin((height));
     }
 
     float vertexDistance = distance(u_mouse, pos.xy);
 
-    // Uncomment for wave like motion
     pos.z += snoise(noisePos*0.6)*0.1;
     pos.y += snoise(noisePos*0.3)*0.1;
     pos.x += snoise(noisePos*0.2)*0.1;

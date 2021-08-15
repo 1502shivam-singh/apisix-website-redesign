@@ -87,7 +87,6 @@ function HeroCanvas() {
                   console.log(opts);
                   if (isLoaded && !isRendering) {
                     animate();
-                    console.log("render has been started");
                   } else {
                     console.log("Loading")
                   }
@@ -95,7 +94,6 @@ function HeroCanvas() {
                 if (animationFrame) {
                   cancelAnimationFrame(animationFrame);
                   isRendering = false;
-                  console.log("render has been halted");
                 }
               }
           }

@@ -69,8 +69,6 @@ function Benefits(props) {
         }, {
             fill: "red",
             duration: 1,
-            // ease: "none",
-            // yoyoEase: "none",
             repeat: -1,
         },"-=1");
         
@@ -94,13 +92,12 @@ function Benefits(props) {
                 repeat: -1,
                 ease: "linear",
                 yoyoEase: "linear",
-                // repeatDelay: 0.1,
             })
         }
 
         // Scaling anim
         for (let i = 0; i < 27; i++) { 
-            tweenTls[2].fromTo(cirs[i],{    // change colors of circles
+            tweenTls[2].fromTo(cirs[i],{
                 fill: gsap.utils.random(colors),
             },{
                 fill:  gsap.utils.random(colors),
@@ -108,7 +105,7 @@ function Benefits(props) {
                 repeat: -1,
                 repeatDelay: 0.1,
             })
-            tweenTls[2].fromTo(ns[i],{    // change colors of circles
+            tweenTls[2].fromTo(ns[i],{
                 stroke: gsap.utils.random(pathColors),
             },{
                 stroke:  gsap.utils.random(pathColors),
