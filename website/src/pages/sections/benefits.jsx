@@ -289,7 +289,7 @@ function Benefits(props) {
                         <h3 className="feat-head-desc">Performance</h3>
                         <h1 className="feat-head add-left-margin">Ultimate performance </h1>
                         <p className="feat-desc add-left-margin"> 
-                        Apache APISIX provides built-in plugins to create high speed systems. From routing, JSON schema to built-in  plugins, all these are designed and implement to meet your ultimate performance requirements. 
+                        Apache APISIX uses radixtree-route-matching and etcd under the hood to provide you the ability to create high speed synchronized systems. From routing to built-in plugins, all these are designed and implemented to be uber performant with the minimum latency possible.                        
                         </p>
                     </div>
                     <div className="benefit-infograph">

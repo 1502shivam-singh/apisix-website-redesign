@@ -137,7 +137,7 @@ function Features() {
                         <div className="text-div" style={{height: "100vh"}}>
                             <h2 className="i-text add-left-margin-feat">Easy-to-use dashboard</h2>
                             <p className="i-text-desc add-left-margin-feat">
-                                The Apache APISIX Dashboard is designed to make it as easy as possible for users to operate Apache APISIX through a frontend interface. It’s opensource and ever evolving feel free to contribute.
+                                The Apache APISIX Dashboard is designed to make it as easy as possible for users to operate Apache APISIX through a frontend interface. It’s opensource and ever evolving, feel free to contribute.
                             </p>
                             <div className="hero-ctas add-left-margin-feat" style={{bottom: "34%"}}>
                                 <Link
@@ -154,7 +154,7 @@ function Features() {
                         <div className="text-div" style={{height: "100vh"}}>
                             <h2 className="i-text add-left-margin-feat" style={{top: "34%"}}>User flexible</h2>
                             <p className="i-text-desc add-left-margin-feat">
-                                The APISIX dashboard is flexible to the user demand, providing option to use visual tools of “drag and connect” or write in custom modules as per your needs.
+                            The APISIX dashboard is flexible to User demand, providing option to create custom modules through code matching your requirements, alongside the existing no-code toolchain.                            
                             </p>
                         </div>
                     </div>

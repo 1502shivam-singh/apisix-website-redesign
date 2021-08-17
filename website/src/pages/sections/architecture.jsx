@@ -74,7 +74,7 @@ function Architecture(props) {
                         <HLDesign className="hldesign-graphic"/>
                     </div>
                     <div className="arch-card-caption">
-                        <p style={{width: screenWidth >=768 ? "50%" : "90%"}}>Apache APISIX is based on Nginx and etcd. Compared with traditional API gateways, APISIX has dynamic routing and plug-in hot loading</p>
+                        <p style={{width: screenWidth >=768 ? "50%" : "90%"}}>Apache APISIX is based on Nginx and etcd. Compared with traditional API gateways, APISIX has dynamic routing and hot-loading plugins</p>
                     </div>
                     <div className="arch-card-border">
 
