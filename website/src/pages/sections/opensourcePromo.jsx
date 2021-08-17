@@ -29,9 +29,9 @@ function OpensourcePromo(props) {
                         <h3 className="oss-promo-head">Be a part of building APISIX</h3>
                         <div className="oss-promo-subtitle" style={{color: "rgb(199, 199, 199)"}}>
                             <p>APISIX is opensource and ever-growing. Contributors are always welcome. Reach out to us on GitHub</p>
-                            <div style={{display: "flex", fontSize: "0.95rem"}}>
+                            <div className="oss-promo-cta">
                                 <GitHub style={{width: "20px", margin: "0 10px 0 0"}} />
-                                <a href="https://github.com/apache/apisix">Check us out</a>
+                                <a href="https://github.com/apache/apisix" style={{textDecoration: "none"}}>Check us out</a>
                             </div>
                         </div>
                     </div>
