@@ -331,7 +331,7 @@ function Benefits(props) {
                         <h3 className="feat-head-desc">Fully dynamic</h3>
                         <h1 className="feat-head add-left-margin">Save dev-time, design what matters </h1>
                         <p className="feat-desc add-left-margin"> 
-                            APISIX provides Hot updates and Hot plugins, which continuosly update configurations without restarts, saving development time and stress. Health checks, circuit breakers and many more features keep the system balanced at all times.
+                            Apache APISIX provides Hot updates and Hot plugins, which continuosly update configurations without restarts, saving development time and stress. Health checks, circuit breakers and many more features keep the system balanced at all times.
                         </p>
                     </div>
                 </div>
@@ -341,7 +341,7 @@ function Benefits(props) {
                         <h3 className="feat-head-desc">Multi-platform and protocol</h3>
                         <h1 className="feat-head add-left-margin">Create once, run anywhere</h1>
                         <p className="feat-desc add-left-margin"> 
-                            Platform agnostic, no vendor lock-in, APISIX can run from bare-metal to kubernetes. It supports HTTP to gRPC transcoding, websockets, gRPC, Dubbo, MQTT proxy and multiple platforms including ARM64, don’t worry about the lock-in of the infra technology.
+                            Platform agnostic, no vendor lock-in, Apache APISIX can run from bare-metal to kubernetes. It supports HTTP to gRPC transcoding, websockets, gRPC, Dubbo, MQTT proxy and multiple platforms including ARM64, don’t worry about the lock-in of the infra technology.
                         </p>
                     </div>
                     <div className="benefit-infograph">

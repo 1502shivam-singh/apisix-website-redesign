@@ -67,7 +67,7 @@ function Architecture(props) {
                     <h3 className="arch-head">Building for large-scale, high value systems</h3>
                 </div>
                 <div className="arch-subtitle">
-                    <p>APISIX lets you build Cloud-Native Microservices API gateways, delivering the ultimate performance, security, open source and scalable platform for all your APIs and microservices.</p> 
+                    <p>Apache APISIX lets you build Cloud-Native Microservices API gateways, delivering the ultimate performance, security, open source and scalable platform for all your APIs and microservices.</p> 
                 </div>
                 <div className="arch-card" style={{position: "relative"}}>
                     <div className="hldesign">
