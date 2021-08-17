@@ -184,7 +184,7 @@ function Features() {
                     <h2 className="add-left-margin" style={{width: "fit-content"}}>Easy-to-use dashboard</h2>
                     <img className="i-image-col" src={Dashboard} alt=""/>
                         <p className="i-text-desc-col add-left-margin">
-                            The Apache APISIX Dashboard is designed to make it as easy as possible for users to operate Apache APISIX through a frontend interface. It’s opensource and ever evolving feel free to contribute.
+                        The Apache APISIX Dashboard is designed to make it as easy as possible for users to operate Apache APISIX through a frontend interface. It’s opensource and ever evolving, feel free to contribute.
                         </p>
                         <div className="hero-ctas add-left-margin" style={{width: "fit-content"}}>
                             <Link
@@ -201,7 +201,7 @@ function Features() {
                     <h2 className="add-left-margin" style={{width: "fit-content"}}>User flexible</h2>
                     <img className="i-image-col" src={Snippet} alt=""/>
                     <p className="i-text-desc-col add-left-margin">
-                        The APISIX dashboard is flexible to the user demand, providing option to use visual tools of “drag and connect” or write in custom modules as per your needs.
+                    The Apache APISIX dashboard is flexible to User demand, providing option to create custom modules through code matching your requirements, alongside the existing no-code toolchain.                            
                     </p>
                 </div>
 
