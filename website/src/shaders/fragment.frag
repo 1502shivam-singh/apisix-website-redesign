@@ -17,5 +17,5 @@
     st.x *= (u_resolution.x / u_resolution.y);
     mouse.x *= (u_resolution.x / u_resolution.y); 
 
-    gl_FragColor = vec4(vec3(1.0, 0.0, 0.0), 1.0);
+    gl_FragColor = vec4(vec3(1.0, 0.0, transfer), 1.0);
   }
