@@ -30,7 +30,7 @@
   --color-downloads-dropdown-items: #f3f4f6;
 }
 
-html[data-theme='dark'] {
+html[data-theme="dark"] {
   --color-secondary-bg: #121212;
   --ifm-color-dark: #b0b0b0;
   --color-title: #f0f0f0;
@@ -91,27 +91,20 @@ html[data-theme='dark'] {
   background: #555;
 }
 
-body{
+body, h1, h2, h3 {
   font-family: MaisonNeue-Medium, sans-serif;
-}
-
-.docusaurus-wrap{
-  height: 100%;
 }
 
 div.inner {
   color: var(--ifm-color-primary);
 }
+
 .image {
   padding: 75px 10px 75px 75px;
-  height: 200;
-  width: 200;
 }
+
 .more-users {
   padding-top: 75px;
-}
-.product-showcase-section {
-  color: var(--ifm-color-primary);
 }
 
 .post-header {
@@ -141,7 +134,7 @@ header h2 {
   color: var(--color-primary);
 }
 
-.navbar__title{
+.navbar__title {
   font-size: 18px;
   height: 30px;
 }
@@ -293,7 +286,6 @@ a:hover {
 .hero-sec-wrap{
   display: flex;
   background: #f4f4f4ad;
-  /* background: #EBE6DC; */
   height: 100vh;
 }
 
@@ -360,7 +352,6 @@ a:hover {
   transition: all 0.3s;
 }
 .btn:hover {
-  /* background: #004391; */
   background: #9b9b9b;
   color: white;
   text-decoration: none;
@@ -392,10 +383,10 @@ a:hover {
 
 .arch {
   background: linear-gradient(180deg, #E2ECFF 15%, #FFF 90%);
-  /* background: #E2ECFF; */
   position: relative;
   z-index: 1;
   padding: 50px 0;
+  overflow: hidden;
 }
 
 .arch-card-caption{
@@ -406,7 +397,6 @@ a:hover {
 }
 
 .arch-card-border {
-  /* display: flex; */
   z-index: -10;
   position: absolute;
   width: 66%;
@@ -443,7 +433,6 @@ a:hover {
   font-weight: 700;
   text-align: center;
   position: relative;
-  /* top: 20px;  */
   bottom: -15px; 
   font-size: 1rem;
 }
@@ -499,7 +488,6 @@ a:hover {
 .i-text{
   font-family: MaisonNeue-Demi;
   font-size: 2rem;
-  /* top: 33%; */
   padding: 0 0 200px 0;
 }
 
@@ -617,7 +605,6 @@ a:hover {
   font-size: 1.13rem;
   margin: 1em auto;
   border-collapse: collapse;
-  /* display: block; */
   max-width: 100%;
   overflow-x: auto;
   table-layout: fixed;
@@ -652,6 +639,7 @@ a:hover {
   display: flex;
   padding: 100px 0;
   background: #fff8f6;
+  justify-content: center;
 }
 
 .docs-promo-text {
@@ -715,7 +703,6 @@ a:hover {
   color: #080808;
 }
 
-
 /*Events and newsletter*/
 .event-card-container {
   display: flex;
@@ -727,7 +714,6 @@ a:hover {
 .event-card {
   border-style: solid;
   border-color: #fff;
-  /* filter: drop-shadow(0px 4px 23px rgba(0, 0, 0, 0.25)); */
   box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.10);
   font-size: 0.95rem;
   font-family: MaisonNeue-Light;
@@ -792,6 +778,7 @@ a:hover {
 .endcta-btns {
   display: flex;
   justify-content: center;
+  padding-bottom: 2rem;
 }
 
 .rocket {
@@ -801,8 +788,9 @@ a:hover {
 }
 
 /* footer */
-.footer {
-  margin-top: 2rem;
+.footer__title {
+  /* margin-top: 2rem; */
+  font-family: MaisonNeue-Medium !important;
 }
 .footer__links .footer__title {
   font-weight: 700;
@@ -908,7 +896,7 @@ a:hover {
   display: flex;
 }
 
-.team-githubLogo{
+.team-githubLogo {
   height: 24px;
 }
 
@@ -929,7 +917,7 @@ a:hover {
 }
 
 .downloads-versioninfo-span {
-  color: var(--color-downloads-rightside-versioninfo-span)
+  color: var(--color-downloads-rightside-versioninfo-span);
 }
 
 .downloads-dropdown {
@@ -941,7 +929,7 @@ a:hover {
 }
 
 .team-repocard {
-  color: var(--color-team-repocard)
+  color: var(--color-team-repocard);
 }
 
 .team-repocard:hover {
@@ -958,6 +946,96 @@ a:hover {
 
 .help-page .card p {
   color: var(--color-help-subtitle);
+}
+
+.pic-wrapper {
+  width: 350px;
+  position: fixed;
+  display: flex;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  outline: 0;
+  overflow: auto;
+  border: 0;
+  box-shadow: 0 0 20px -12px #626365;
+}
+
+.pic-wrapper a {
+  display: flex;
+}
+
+.pic-wrapper-close {
+  position: absolute;
+  z-index: 1000;
+  top: 10px;
+  right: 10px;
+  padding: 5px;
+  font-weight: 900;
+  color: rgb(135, 151, 172);
+  font-size: 16px;
+  outline: none;
+  border-radius: 100px;
+  border: 1px solid transparent;
+}
+
+.pic-wrapper-close:hover {
+  cursor: pointer;
+}
+
+.pic-wrapper-close svg {
+  width: 10px;
+  height: 10px;
+  display: inherit;
+}
+
+@media only screen and (max-width: 440px) {
+  .pic-wrapper {
+    width: 70%;
+  }
+}
+
+/*plugin hub section*/
+.plugin-logo {
+  margin-top: 10px;
+  max-width: 250px;
+  max-height: 180px;
+  transform: scale(1);
+  transition: transform 0.5s ease;
+}
+
+.plugin-logo.default {
+  opacity: 0.2;
+}
+
+.overflow{
+ overflow: hidden;
+}
+
+.plugin-logo:hover {
+  transform: scale(1.2);
+}
+
+.read-more-link {
+  color: #d0312d;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: left;
+  padding-bottom: 2px;
+  display: flex;
+}
+.read-more-link:hover {
+  color: var(--color-primary);
+  text-decoration: var(--ifm-link-hover-decoration);
+}
+
+/*Sidebar Section*/
+.sidebar-link{
+  color: #d0312d;
+}
+
+.sidebar-link :hover {
+  color: #ffb3b3;
 }
 
 /* Mobile-phones and tablet styles */
@@ -1033,6 +1111,10 @@ a:hover {
     left: 7%;
   }
   
+  .bottom-pos {
+    bottom: 34%;
+  }
+
   .feat-head {
     font-size: 2.13rem;
     width: 84%;
@@ -1066,7 +1148,6 @@ a:hover {
     justify-content: center;
     align-items: center;
     flex-flow: column-reverse;
-    /* height: fit-content; */
     position: absolute;
     height: 100vh;
     width: 100vw;
@@ -1157,4 +1238,27 @@ a:hover {
 
 .react-toggle {
   display: none;
+}
+
+.bottom-pos {
+  bottom: 34%;  
+}
+
+@media (min-width: 1600px) and (max-width: 2080px) {
+  .hero-title {
+    width: 40vw;
+    font-size: 5.2rem;
+  }
+  
+  .hero-subtitle {
+    width: 40vw;
+  }
+
+  .bottom-pos {
+    bottom: 38%;
+  }
+
+  .arch-scale-svg {
+    transform: scale(1.2);
+  }
 }
