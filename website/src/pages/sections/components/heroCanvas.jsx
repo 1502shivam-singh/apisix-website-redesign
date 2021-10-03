@@ -115,7 +115,7 @@ const HeroCanvas = () => {
       controls.enablePan = false;
       controls.enabled = false;
 
-      geometry = new THREE.PlaneBufferGeometry(width / height, 1, 200, 200);
+      geometry = new THREE.PlaneBufferGeometry(width / height, 1, 250, 250);
 
       let count = geometry.attributes.position.count;
       let arrSize = new THREE.BufferAttribute(new Float32Array(count), 1);
@@ -226,7 +226,7 @@ const HeroCanvas = () => {
   }, [])
 
   return (
-    <div style={{position: "relative"}}>
+    <div className="hero-infograph" style={{position: "relative"}}>
       <canvas ref={canvasRef} className="homeCanvas"></canvas>
       <div ref={overlayRef} className="homeCanvas-overlay"></div>
     </div>  
